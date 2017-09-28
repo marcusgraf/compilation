@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>EnterAirbnbIdPage</ion-title>
+    <ion-title>{{ 'ENTER_AIRBNB_ID.TITLE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,12 +12,12 @@
     <ion-list>
 
       <ion-item>
-        <ion-label fixed>{{ 'AIRBNB_ID_OR_LINK' | translate }}</ion-label>
+        <ion-label fixed>{{ 'ENTER_AIRBNB_ID.AIRBNB_ID_OR_LINK' | translate }}</ion-label>
         <ion-input type="text" [(ngModel)]="airbnbIdToAdd" name="id"></ion-input>
       </ion-item>
 
       <div padding>
-        <button ion-button color="primary" block>{{ 'ADD' | translate }}</button>
+        <button ion-button color="primary" block>{{ 'ENTER_AIRBNB_ID.ADD_BUTTON' | translate }}</button>
       </div>
 
     </ion-list>

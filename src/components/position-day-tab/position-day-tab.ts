@@ -13,12 +13,16 @@ export class PositionDayTabComponent implements OnInit{
   @Input() day: Day;
   @Input() property: Property;
   positionData: any;
+  param: Object;
 
   constructor(private dayService: DayServiceProvider ) {
     console.log('Hello PositionDataComponent Component');
+
   }
 
   ngOnInit() {
+    this.param = {value: this.property.address};
+
     if (this.day.visibility === 1 && this.day.position>0){
       this.dayService.init(this.property.id);
       this.dayService.fetchPositionData(this.day.sqlDate).subscribe(

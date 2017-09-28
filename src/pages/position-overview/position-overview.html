@@ -18,11 +18,11 @@
         <ion-card-content>
           <div *ngIf="property.averagePositionPage">
             <h1 text-center class="position-value">{{property.averagePositionPage}}<sup>{{ordinalSupText(property.averagePositionPage)}}</sup> page</h1>
-            <p>{{ 'PROPERTY_OVERVIEW.DATA_DESCRIPTION' | translate }}</p>
+            <p>{{ 'POSITION_OVERVIEW.DATA_DESCRIPTION' | translate }}</p>
           </div>
           <div *ngIf="!property.averagePositionPage">
-            <h1 text-center class="position-value">{{ 'PROPERTY_OVERVIEW.PROCESSING' | translate}}</h1>
-            <p>{{ 'PROPERTY_OVERVIEW.PROCESSING_DESCRIPTION' | translate }}</p>
+            <h1 text-center class="position-value">{{ 'POSITION_OVERVIEW.PROCESSING' | translate}}</h1>
+            <p>{{ 'POSITION_OVERVIEW.PROCESSING_DESCRIPTION' | translate }}</p>
           </div>
           <p><small>Updated every 24 hours.</small></p>
         </ion-card-content>

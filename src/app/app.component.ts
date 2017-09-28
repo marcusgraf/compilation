@@ -54,8 +54,8 @@ export class MyApp {
       }
     });
 
-    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+    this.translate.get(['GENERAL']).subscribe(values => {
+      this.config.set('ios', 'backButtonText', values.GENERAL.BACK_BUTTON_TEXT);
     });
   }
 }

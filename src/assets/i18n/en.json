@@ -1,75 +1,113 @@
 {
-  "BACK_BUTTON_TEXT" : "Back",
+  "GENERAL": {
+    "BACK_BUTTON_TEXT" : "Back",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "DONE_BUTTON" : "Done",
+    "CANCEL_BUTTON" : "Cancel"
+  },
 
-  "NAME": "Name",
-  "EMAIL": "Email",
-  "USERNAME": "Username",
-  "PASSWORD": "Password",
-  "LOGIN": "Sign in",
-  "SIGNUP": "Sign up",
 
-  "TAB1_TITLE": "Properties",
-  "TAB2_TITLE": "Help",
-  "TAB3_TITLE": "Settings",
+  "TUTORIAL": {
+    "SKIP_BUTTON" : "Skip",
+    "CONTINUE_BUTTON" : "Continue",
+    "SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
+    "SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
+    "SLIDE2_TITLE": "How to use the Super Starter",
+    "SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
+    "SLIDE3_TITLE": "Getting Started",
+    "SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
+    "SLIDE4_TITLE": "Ready to Play?"
+  },
 
-  "MAP_TITLE": "Map",
 
-  "TUTORIAL_SKIP_BUTTON" : "Skip",
-  "TUTORIAL_CONTINUE_BUTTON" : "Continue",
+  "WELCOME": {
+    "INTRO" : "How to find your property?",
+    "LINK_ACCOUNT": "Link your account airbnb account",
+    "ENTER_AIRBNB_ID": "Enter property's airbnb identifier",
+    "FIND_PROPERTY": "Find your property on the map"
+  },
 
-  "TUTORIAL_SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
 
-  "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
+  "PROPERTIES": {
+    "TITLE": "Properties",
+    "DELETE_BUTTON" : "Delete"
+  },
 
-  "TUTORIAL_SLIDE3_TITLE": "Getting Started",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
 
-  "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
+  "ADD_PROPERTY": {
+    "TITLE" : "How to find your property?",
+    "LINK_ACCOUNT": "Link your account airbnb account",
+    "ENTER_AIRBNB_ID": "Enter property's airbnb identifier",
+    "FIND_PROPERTY": "Find your property on the map"
+  },
 
-  "WELCOME_INTRO" : "How to find your property?",
 
-  "SETTINGS_TITLE": "Settings",
-  "SETTINGS_OPTION1": "Language",
-  "SETTINGS_OPTION2": "Currency",
-  "SETTINGS_OPTION3": "Option 3",
-  "SETTINGS_OPTION4": "Option 4",
+  "LINK_ACCOUNT": {
+    "TITLE" : "Link",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "LINK_BUTTON": "Link account",
+    "INCORRECT_PASWORD": "We are sorry. We haven´t been able to verify your account. Please make sure you have added your details correctly"
+  },
 
-  "SETTINGS_PROFILE_BUTTON" : "Suscription",
 
-  "SETTINGS_PAGE_PROFILE": "Edit Profile",
+  "ENTER_AIRBNB_ID": {
+    "TITLE" : "Enter airbnb id",
+    "AIRBNB_ID_OR_LINK": "Email",
+    "ADD_BUTTON": "Add property"
+  },
 
-  "WELCOME_TITLE": "Welcome",
 
-  "LOGIN_TITLE": "Sign in",
-  "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",
-  "LOGIN_BUTTON": "Sign in",
-  "SIGNUP_TITLE": "Sign up",
-  "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
-  "SIGNUP_BUTTON": "Sign up",
+  "FIND_PROPERTY": {
+    "TITLE" : "Find your property"
+  },
 
-  "LIST_MASTER_TITLE": "Properties",
 
-  "ITEM_CREATE_TITLE": "New Item",
-  "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
+  "POSITION_OVERVIEW": {
+    "DATA_DESCRIPTION": "The Airbnb page in which your property appears when searching in Madrid",
+    "PROCESSING" : "We are processing your data",
+    "PROCESSING_DESCRIPTION" : "It can takes up to 20 minutes"
+  },
 
-  "ITEM_NAME_PLACEHOLDER" : "Name",
-  "ITEM_ABOUT_PLACEHOLDER" : "About",
 
-  "DONE_BUTTON" : "Done",
-  "CANCEL_BUTTON" : "Cancel",
-  "DELETE_BUTTON" : "Delete",
+  "DAY": {
+    "OCUPPIED": "Occupied",
+    "POSITION": {
+      "PAGE": "page",
+      "KEYWORD": "When searching in {{value}}",
+      "NIGHTS": "Nights",
+      "ROOMS": "Rooms",
+      "LAST_DAY_PERIOD": "This is the last day of a period and your listing does not show due to the <b>minimum number of nights</b> you have specified in your Airbnb settings",
+      "MINIMUM_NIGTHS_PROBLEM": "Your listing can not appear when searching due to the <b>minimum number of nights</b> per booking that you have specified in Airbnb",
+      "NOT_APPEARS": "Your listing does not appear this day in the first 18 pages when searching in <b>'{{value}'</b></span> without any filters. (It will probably appear if the Airbnb user applies some filters.)"
+    }
+  },
 
-  "CARDS_TITLE": "Social",
 
-  "SEARCH_TITLE": "Search",
-  "SEARCH_PLACEHOLDER" : "Search the items list, e.g. \"Donald Duck\"",
+  "SETTINGS": {
+    "TITLE": "Settings",
+    "INTRO" : "How to find your property?",
+    "LANGUAGE": "Language",
+    "CURRENCY": "Currency",
+    "SUBSCRIBE_BUTTON" : "Suscription",
+    "ENGLISH": "English",
+    "SPANISH": "Español",
+    "FRENCH": "French",
+    "ITALIAN": "Italian",
+    "PORTUGUESE": "Portuguese",
+    "RUSSIAN": "Russian"
+  },
 
-  "LINK_ACCOUNT": "Link your account airbnb account",
-  "ENTER_AIRBNB_ID": "Enter property's airbnb identifier",
-  "FIND_PROPERTY": "Find your property on the map",
-  "PROPERTY_OVERVIEW": {
-    "DATA_DESCRIPTION": "The Airbnb page in which your property appears when searching in Madrid"
+
+  "HELP": {
+    "TITLE": "Help",
+    "TEXT_TO_SEND" : "Message",
+    "EMAIL": "Email",
+    "SEND": "Send",
+    "THANKS": "We will get back to you as soon as possible. Thanks for your patience.",
+    "PROBLEM": "Ups! Something when wrong"
   }
+
+
 }

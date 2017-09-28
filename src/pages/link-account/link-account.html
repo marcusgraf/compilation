@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>LinkAccountPage</ion-title>
+    <ion-title>{{ 'LINK_ACCOUNT.TITLE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -13,17 +13,17 @@
     <ion-list>
 
       <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-label fixed>{{ 'LINK_ACCOUNT.EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email" placeholder="myAirbnb@mail.com"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-label fixed>{{ 'LINK_ACCOUNT.PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password" placeholder="password"></ion-input>
       </ion-item>
 
       <div padding>
-        <button ion-button color="primary" block>{{ 'LINK' | translate }}</button>
+        <button ion-button color="primary" block>{{ 'LINK_ACCOUNT.LINK_BUTTON' | translate }}</button>
       </div>
 
     </ion-list>

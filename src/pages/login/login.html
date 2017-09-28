@@ -1,11 +1,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'ITEM_CREATE_TITLE' | translate }}</ion-title>
+    <ion-title>{{ 'ADD_PROPERTY.TITLE' | translate }}</ion-title>
     <ion-buttons start>
       <button ion-button (click)="cancel()">
         <span color="primary" showWhen="ios">
-          {{ 'CANCEL_BUTTON' | translate }}
+          {{ 'GENERAL.CANCEL_BUTTON' | translate }}
         </span>
         <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
       </button>
@@ -15,7 +15,7 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block (click)="linkAccount()" class="signup">{{ 'LINK_ACCOUNT' | translate }}</button>
-  <button ion-button block (click)="enterAirbnbId()" class="login">{{ 'ENTER_AIRBNB_ID' | translate }}</button>
-  <button ion-button block (click)="findProperty()" class="login">{{ 'FIND_PROPERTY' | translate }}</button>
+  <button ion-button block (click)="linkAccount()" class="signup">{{ 'ADD_PROPERTY.LINK_ACCOUNT' | translate }}</button>
+  <button ion-button block (click)="enterAirbnbId()" class="login">{{ 'ADD_PROPERTY.ENTER_AIRBNB_ID' | translate }}</button>
+  <button ion-button block (click)="findProperty()" class="login">{{ 'ADD_PROPERTY.FIND_PROPERTY' | translate }}</button>
 </ion-content>

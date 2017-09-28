@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Help</ion-title>
+    <ion-title>{{ 'HELP.TITLE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,17 +19,17 @@
     <ion-list>
 
       <ion-item>
-        <ion-label fixed>{{ 'TEXT_TO_SEND' | translate }}</ion-label>
+        <ion-label fixed>{{ 'HELP.TEXT_TO_SEND' | translate }}</ion-label>
         <ion-textarea type="text" [(ngModel)]="textToSend" name="textToSend" placeholder="Tell us what you need"></ion-textarea>
       </ion-item>
 
       <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-label fixed>{{ 'HELP.EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="email" name="email" placeholder="myAirbnb@mail.com"></ion-input>
       </ion-item>
 
       <div padding>
-        <button ion-button color="primary" block>{{ 'SEND' | translate }}</button>
+        <button ion-button color="primary" block>{{ 'HELP.SEND' | translate }}</button>
       </div>
 
     </ion-list>

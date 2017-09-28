@@ -37,48 +37,43 @@ export class TutorialPage {
     private propertiesService: PropertiesServiceProvider,
     private settingsService: Settings
   ) {
-    translate.get(["TUTORIAL_SLIDE1_TITLE",
-      "TUTORIAL_SLIDE1_DESCRIPTION",
-      "TUTORIAL_SLIDE2_TITLE",
-      "TUTORIAL_SLIDE2_DESCRIPTION",
-      "TUTORIAL_SLIDE3_TITLE",
-      "TUTORIAL_SLIDE3_DESCRIPTION",
-    ]).subscribe(
+    translate.get("TUTORIAL").subscribe(
       (values) => {
         this.slides = [
           {
-            title: values.TUTORIAL_SLIDE1_TITLE,
-            description: values.TUTORIAL_SLIDE1_DESCRIPTION,
+            title: values.SLIDE1_TITLE,
+            description: values.SLIDE1_DESCRIPTION,
             image: 'assets/img/ica-slidebox-img-1.png',
           },
           {
-            title: values.TUTORIAL_SLIDE2_TITLE,
-            description: values.TUTORIAL_SLIDE2_DESCRIPTION,
+            title: values.SLIDE2_TITLE,
+            description: values.SLIDE2_DESCRIPTION,
             image: 'assets/img/ica-slidebox-img-2.png',
           },
           {
-            title: values.TUTORIAL_SLIDE3_TITLE,
-            description: values.TUTORIAL_SLIDE3_DESCRIPTION,
+            title: values.SLIDE3_TITLE,
+            description: values.SLIDE3_DESCRIPTION,
             image: 'assets/img/ica-slidebox-img-3.png',
           }
         ];
       });
 
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      const tutorial_text = event.translations['TUTORIAL'];
       this.slides = [
         {
-          title: event.translations['TUTORIAL_SLIDE1_TITLE'],
-          description: event.translations['TUTORIAL_SLIDE1_DESCRIPTION'],
+          title: tutorial_text['SLIDE1_TITLE'],
+          description: tutorial_text['SLIDE1_DESCRIPTION'],
           image: 'assets/img/ica-slidebox-img-1.png',
         },
         {
-          title: event.translations['TUTORIAL_SLIDE2_TITLE'],
-          description: event.translations['TUTORIAL_SLIDE2_DESCRIPTION'],
+          title: tutorial_text['SLIDE2_TITLE'],
+          description: tutorial_text['SLIDE2_DESCRIPTION'],
           image: 'assets/img/ica-slidebox-img-2.png',
         },
         {
-          title: event.translations['TUTORIAL_SLIDE3_TITLE'],
-          description: event.translations['TUTORIAL_SLIDE3_DESCRIPTION'],
+          title: tutorial_text['SLIDE3_TITLE'],
+          description: tutorial_text['SLIDE3_DESCRIPTION'],
           image: 'assets/img/ica-slidebox-img-3.png',
         }
       ];

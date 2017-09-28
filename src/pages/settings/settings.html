@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ pageTitle }}</ion-title>
+    <ion-title>{{ "SETTINGS.TITLE" | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,20 +12,20 @@
     <ion-list *ngIf="page == 'main'">
 
       <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION1' | translate }}</ion-label>
+        <ion-label>{{ 'SETTINGS.LANGUAGE' | translate }}</ion-label>
         <ion-select formControlName="language">
-          <ion-option value="en">{{ 'ENGLISH' | translate }}</ion-option>
-          <ion-option value="es">{{ 'SPANISH' | translate }}</ion-option>
-          <ion-option value="fr">{{ 'FRENCH' | translate }}</ion-option>
-          <ion-option value="it">{{ 'ITALIAN' | translate }}</ion-option>
-          <ion-option value="pt-br">{{ 'PORTUGUESE' | translate }}</ion-option>
-          <ion-option value="ru">{{ 'RUSSIAN' | translate }}</ion-option>
+          <ion-option value="en">{{ 'SETTINGS.ENGLISH' | translate }}</ion-option>
+          <ion-option value="es">{{ 'SETTINGS.SPANISH' | translate }}</ion-option>
+          <ion-option value="fr">{{ 'SETTINGS.FRENCH' | translate }}</ion-option>
+          <ion-option value="it">{{ 'SETTINGS.ITALIAN' | translate }}</ion-option>
+          <ion-option value="pt-br">{{ 'SETTINGS.PORTUGUESE' | translate }}</ion-option>
+          <ion-option value="ru">{{ 'SETTINGS.RUSSIAN' | translate }}</ion-option>
         </ion-select>
       </ion-item>
 <!--
 
       <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION2' | translate }}</ion-label>
+        <ion-label>{{ 'SETTINGS.CURRENCY' | translate }}</ion-label>
         <ion-select formControlName="currency">
           <ion-option *ngFor="let currency of currencies" [value]="currency.currency" >{{currency.name}}</ion-option>
         </ion-select>
@@ -37,14 +37,14 @@
       </button>-->
     </ion-list>
 
-    <ion-list *ngIf="page == 'profile'">
+<!--    <ion-list *ngIf="page == 'profile'">
       <ion-item>
         <ion-label>{{ 'SETTINGS_OPTION4' | translate }}</ion-label>
         <ion-input formControlName="option4"></ion-input>
       </ion-item>
-    </ion-list>
+    </ion-list>-->
   </form>
 
 
-  <button ion-button (click)="subscribe()">Subscribe</button>
+  <button ion-button (click)="subscribe()">{{ 'SETTINGS.SUBSCRIBE_BUTTON' | translate }}</button>
 </ion-content>
