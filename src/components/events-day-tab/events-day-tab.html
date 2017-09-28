@@ -1,0 +1,14 @@
+<ul class="media-list" *ngIf="events.length > 0">
+  <li class="media" *ngFor="let event of events">
+    <div class="media-left"  style="width: 33%">
+      <img class="media-object img-responsive" [src]="event.UrlImagen">
+    </div>
+    <div class="media-body text-left">
+      <h4 class="media-heading">{{event.Nombre}}</h4>
+      <p *ngIf="event.Desde !== event.Hasta">From {{event.Desde}} to {{event.Hasta}}.</p>
+      <p  style="font-size: 12px">{{event.Descripcion}}</p>
+    </div>
+  </li>
+</ul>
+
+<h3 *ngIf="events.length === 0">There are no events on this day.</h3>

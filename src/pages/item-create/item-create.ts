@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Camera } from '@ionic-native/camera';
-import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { NavController, ViewController } from 'ionic-angular';
 
-@IonicPage()
+import { Camera } from '@ionic-native/camera';
+
+
 @Component({
   selector: 'page-item-create',
   templateUrl: 'item-create.html'

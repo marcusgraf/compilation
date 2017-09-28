@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-import { Settings } from '../../providers/providers';
+import { Settings } from '../../providers/settings';
+
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
+import {UserServiceProvider} from "../../providers/user-service/user-service";
+import {StoreServiceProvider} from "../../providers/store-service/store-service";
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
  * to enable the user to customize settings for the app.
  *
  */
-@IonicPage()
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
@@ -34,18 +36,23 @@ export class SettingsPage {
 
   subSettings: any = SettingsPage;
 
+  currencies: {}[];
+
   constructor(public navCtrl: NavController,
     public settings: Settings,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    public userService: UserServiceProvider,
+    public storeService: StoreServiceProvider
+  ) {
+    this.currencies = this.userService.currencies;
   }
 
   _buildForm() {
     let group: any = {
-      option1: [this.options.option1],
-      option2: [this.options.option2],
-      option3: [this.options.option3]
+      language: [this.options.language],
+      currency: [this.options.currency],
     };
 
     switch (this.page) {
@@ -61,6 +68,8 @@ export class SettingsPage {
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
+      this.translate.use(v.language);
+      this.userService.currentCurrency = v.currency;
       this.settings.merge(this.form.value);
     });
   }
@@ -87,9 +96,17 @@ export class SettingsPage {
 
       this._buildForm();
     });
+
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.pageTitle = event.translations['SETTINGS_TITLE'];
+    });
   }
 
   ngOnChanges() {
     console.log('Ng All Changes');
+  }
+
+  subscribe(){
+    this.storeService.subscribe();
   }
 }

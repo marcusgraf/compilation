@@ -1,20 +1,69 @@
-import { ErrorHandler, NgModule } from '@angular/core';
-import { Http, HttpModule } from '@angular/http';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule, Http } from '@angular/http';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { Storage, IonicStorageModule } from '@ionic/storage';
+
+import { MyApp } from './app.component';
+
+import { CardsPage } from '../pages/cards/cards';
+import { ContentPage } from '../pages/content/content';
+import { ItemCreatePage } from '../pages/item-create/item-create';
+import { ItemDetailPage } from '../pages/item-detail/item-detail';
+import { ListMasterPage } from '../pages/list-master/list-master';
+import { LoginPage } from '../pages/login/login';
+import { MapPage } from '../pages/map/map';
+import { MenuPage } from '../pages/menu/menu';
+import { SearchPage } from '../pages/search/search';
+import { SettingsPage } from '../pages/settings/settings';
+import { SignupPage } from '../pages/signup/signup';
+import { TabsPage } from '../pages/tabs/tabs';
+import { TutorialPage } from '../pages/tutorial/tutorial';
+import { WelcomePage } from '../pages/welcome/welcome';
+import {RecommendationsPage} from "../pages/recommendations/recommendations";
+import {BookingsPage} from "../pages/bookings/bookings";
+import {AreaPage} from "../pages/area/area";
+import {PerformancePage} from "../pages/performance/performance";
+import {DayPage} from "../pages/day/day";
+import {MonthPage} from "../pages/month/month";
+
+import { Api } from '../providers/api';
+import { Settings } from '../providers/settings';
+import { User } from '../providers/user';
+
 import { Camera } from '@ionic-native/camera';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { IonicStorageModule, Storage } from '@ionic/storage';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Device } from '@ionic-native/device';
+import { InAppPurchase2 } from '@ionic-native/in-app-purchase-2';
 
-import { Items } from '../mocks/providers/items';
-import { Settings } from '../providers/providers';
-import { User } from '../providers/providers';
-import { Api } from '../providers/providers';
-import { MyApp } from './app.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PropertiesServiceProvider } from '../providers/properties-service/properties-service';
+import { UserServiceProvider } from '../providers/user-service/user-service';
+import { PropertyServiceProvider } from '../providers/property-service/property-service';
+import { DayServiceProvider } from '../providers/day-service/day-service';
+
+
+import {OverviewBoxComponent} from "../components/overview-box/overview-box";
+import {MonthComponent} from "../components/month/month";
+import {DayComponent} from "../components/day/day";
+import {PriceDayTabComponent} from "../components/price-day-tab/price-day-tab";
+import {PositionDayTabComponent} from "../components/position-day-tab/position-day-tab";
+import {MinimumStayDayTabComponent} from "../components/minimum-stay-day-tab/minimum-stay-day-tab";
+import {EventsDayTabComponent} from "../components/events-day-tab/events-day-tab";
+import {HotelsDayTabComponent} from "../components/hotels-day-tab/hotels-day-tab";
+import {PriceComponent} from "../components/price/price";
+import {PropertyItemComponent} from "../components/property-item/property-item";
+import {CalendarPreferencesPage} from "../pages/calendar-preferences/calendar-preferences";
+import {LinkAccountPage} from "../pages/link-account/link-account";
+import {EnterAirbnbIdPage} from "../pages/enter-airbnb-id/enter-airbnb-id";
+import {PositionOverviewPage} from "../pages/position-overview/position-overview";
+import { HelpServiceProvider } from '../providers/help-service/help-service';
+import {HelpPage} from "../pages/help/help";
+import { VayooApiServiceProvider } from '../providers/vayoo-api-service/vayoo-api-service';
+import { StoreServiceProvider } from '../providers/store-service/store-service';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -30,16 +79,47 @@ export function provideSettings(storage: Storage) {
    * these values will not overwrite the saved values (this can be done manually if desired).
    */
   return new Settings(storage, {
-    option1: true,
-    option2: 'Ionitron J. Framework',
-    option3: '3',
-    option4: 'Hello'
   });
 }
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    CardsPage,
+    ContentPage,
+    ItemCreatePage,
+    ItemDetailPage,
+    ListMasterPage,
+    LoginPage,
+    MapPage,
+    MenuPage,
+    SearchPage,
+    SettingsPage,
+    SignupPage,
+    TabsPage,
+    TutorialPage,
+    WelcomePage,
+    OverviewBoxComponent,
+    RecommendationsPage,
+    PerformancePage,
+    BookingsPage,
+    AreaPage,
+    MonthComponent,
+    MonthPage,
+    DayComponent,
+    DayPage,
+    PriceDayTabComponent,
+    PositionDayTabComponent,
+    MinimumStayDayTabComponent,
+    EventsDayTabComponent,
+    HotelsDayTabComponent,
+    PriceComponent,
+    PropertyItemComponent,
+    CalendarPreferencesPage,
+    LinkAccountPage,
+    EnterAirbnbIdPage,
+    PositionOverviewPage,
+    HelpPage
   ],
   imports: [
     BrowserModule,
@@ -56,19 +136,62 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    CardsPage,
+    ContentPage,
+    ItemCreatePage,
+    ItemDetailPage,
+    ListMasterPage,
+    LoginPage,
+    MapPage,
+    MenuPage,
+    SearchPage,
+    SettingsPage,
+    SignupPage,
+    TabsPage,
+    TutorialPage,
+    WelcomePage,
+    OverviewBoxComponent,
+    RecommendationsPage,
+    PerformancePage,
+    BookingsPage,
+    AreaPage,
+    MonthComponent,
+    MonthPage,
+    DayComponent,
+    DayPage,
+    PriceDayTabComponent,
+    PositionDayTabComponent,
+    MinimumStayDayTabComponent,
+    EventsDayTabComponent,
+    HotelsDayTabComponent,
+    PriceComponent,
+    PropertyItemComponent,
+    CalendarPreferencesPage,
+    LinkAccountPage,
+    EnterAirbnbIdPage,
+    PositionOverviewPage,
+    HelpPage
   ],
   providers: [
     Api,
-    Items,
     User,
     Camera,
     GoogleMaps,
     SplashScreen,
     StatusBar,
+    Device,
+    InAppPurchase2,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    PropertiesServiceProvider,
+    UserServiceProvider,
+    PropertyServiceProvider,
+    DayServiceProvider,
+    HelpServiceProvider,
+    VayooApiServiceProvider,
+    StoreServiceProvider
   ]
 })
 export class AppModule { }

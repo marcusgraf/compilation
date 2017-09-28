@@ -1,0 +1,6 @@
+<span *ngIf="symbolRightSide">
+  {{ convertedAmount }}&thinsp;<span>{{symbol}}</span>
+</span>
+<span *ngIf="!symbolRightSide">
+  <span>{{symbol}}</span>&thinsp;{{ convertedAmount }}
+</span>

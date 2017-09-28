@@ -1,0 +1,37 @@
+day {
+  .lower-price {
+    background-color: #ecb613;
+  }
+  .rise-price {
+    background-color: #ff8000;
+  }
+  .position-value {
+    color: #007CA6;
+    font-size: 14px;
+    font-weight: bolder;
+  }
+  .white-position-value {
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+  }
+  .minimum-stay-value {
+    color: green;
+
+  }
+  .minimum-stay-alert {
+    background-color: green;
+  }
+  .recommendation{
+    border-radius: 3px;
+    padding: 1px;
+    color: white;
+  }
+  .dayNumber{
+    font-size: 11px;
+    color: grey;
+    position: absolute;
+    left: 2px;
+    top: 0px;
+  }
+}

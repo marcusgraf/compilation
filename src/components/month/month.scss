@@ -1,0 +1,22 @@
+month {
+  .lower-price {
+    background-color: #ecb613;
+  }
+  .rise-price {
+    background-color: #ff8000;
+  }
+  .position-value {
+    color: #007CA6;
+  }
+  .minimum-stay-value {
+    color: green;
+  }
+  .minimum-stay-alert {
+    background-color: green;
+  }
+  .recommendation{
+    border-radius: 3px;
+    padding: 1px;
+    color: white;
+  }
+}

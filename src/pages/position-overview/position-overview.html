@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ property.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="property-profile" text-center #profilePic [style.background-image]="'url(' + property.largeImage + ')'">
+  </div>
+
+  <div class="property-detail">
+    <ion-grid>
+      <ion-card>
+        <ion-card-header>Overall</ion-card-header>
+        <ion-card-content>
+          <div *ngIf="property.averagePositionPage">
+            <h1 text-center class="position-value">{{property.averagePositionPage}}<sup>{{ordinalSupText(property.averagePositionPage)}}</sup> page</h1>
+            <p>{{ 'PROPERTY_OVERVIEW.DATA_DESCRIPTION' | translate }}</p>
+          </div>
+          <div *ngIf="!property.averagePositionPage">
+            <h1 text-center class="position-value">{{ 'PROPERTY_OVERVIEW.PROCESSING' | translate}}</h1>
+            <p>{{ 'PROPERTY_OVERVIEW.PROCESSING_DESCRIPTION' | translate }}</p>
+          </div>
+          <p><small>Updated every 24 hours.</small></p>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngFor="let month of property.yearRecommendations">
+        <ion-card-header>{{month.name}}</ion-card-header>
+        <ion-card-content >
+          <ion-row *ngFor="let week of month.weeks; let i = index">
+            <ion-col no-padding *ngFor="let day of week" [ngClass]="dayStyle(day, month, i)" (click)="openDay(day, month)">
+              <day *ngIf="day.month === month.number" tappable margin [day]="day" [dataToShow]="overviewBoxes[2]" [showOcuppancy]="showOccupancy"></day>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-grid>
+  </div>
+</ion-content>

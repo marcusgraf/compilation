@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+
+import { LoginPage } from '../login/login';
+import { SignupPage } from '../signup/signup';
+import {MapPage} from "../map/map";
+import {LinkAccountPage} from "../link-account/link-account";
+import {EnterAirbnbIdPage} from "../enter-airbnb-id/enter-airbnb-id";
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -7,7 +13,6 @@ import { IonicPage, NavController } from 'ionic-angular';
  * If you'd like to immediately put the user onto a login/signup page,
  * we recommend not using the Welcome page.
 */
-@IonicPage()
 @Component({
   selector: 'page-welcome',
   templateUrl: 'welcome.html'
@@ -16,11 +21,15 @@ export class WelcomePage {
 
   constructor(public navCtrl: NavController) { }
 
-  login() {
-    this.navCtrl.push('LoginPage');
+  linkAccount() {
+    this.navCtrl.push(LinkAccountPage);
   }
 
-  signup() {
-    this.navCtrl.push('SignupPage');
+  enterAirbnbId() {
+    this.navCtrl.push(EnterAirbnbIdPage);
+  }
+
+  findProperty() {
+    this.navCtrl.push(MapPage);
   }
 }

@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ day.day}} {{month.name}} {{month.year}}</ion-title>
+  </ion-navbar>
+
+<!--  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="dataToShow.name">
+      <ion-segment-button value="price">
+        Price
+      </ion-segment-button>
+      <ion-segment-button value="stay">
+        Stay
+      </ion-segment-button>
+      <ion-segment-button value="position">
+        Position
+      </ion-segment-button>
+      <ion-segment-button value="Events">
+        Events
+      </ion-segment-button>
+      <ion-segment-button value="Hotels">
+        Hotels
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>-->
+</ion-header>
+
+
+<ion-content padding>
+  <div [ngSwitch]="dataToShow.name">
+    <div *ngSwitchCase="'price'">
+      <price-day-tab [day]="day" [property]="property"></price-day-tab>
+    </div>
+    <div *ngSwitchCase="'stay'">
+      <minimum-stay-day-tab [day]="day" [property]="property"></minimum-stay-day-tab>
+    </div>
+    <div *ngSwitchCase="'position'">
+      <position-day-tab [day]="day" [property]="property"></position-day-tab>
+    </div>
+    <div *ngSwitchCase="'Events'">
+      <events-day-tab [day]="day" [property]="property"></events-day-tab>
+    </div>
+    <div *ngSwitchCase="'Hotels'">
+      <hotels-day-tab [day]="day" [property]="property"></hotels-day-tab>
+    </div>
+  </div>
+</ion-content>

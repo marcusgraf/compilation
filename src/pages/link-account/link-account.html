@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>LinkAccountPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (submit)="linkAccount()">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-input type="email" [(ngModel)]="account.email" name="email" placeholder="myAirbnb@mail.com"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password" placeholder="password"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>{{ 'LINK' | translate }}</button>
+      </div>
+
+    </ion-list>
+  </form>
+
+  <div *ngIf="showError">
+    <h1>Ups!</h1>
+    <p [innerHTML]="this.helpMessage"></p>
+  </div>
+
+</ion-content>

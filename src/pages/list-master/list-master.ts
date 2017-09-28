@@ -1,25 +1,46 @@
-import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, ModalController, Platform} from 'ionic-angular';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+import { ItemDetailPage } from '../item-detail/item-detail';
 
-@IonicPage()
+import { PropertiesServiceProvider } from '../../providers/properties-service/properties-service';
+import { Property } from '../../models/property';
+import {UserServiceProvider} from "../../providers/user-service/user-service";
+import {LoginPage} from "../login/login";
+import {Subscription} from "rxjs/Subscription";
+import {WelcomePage} from "../welcome/welcome";
+import {PositionOverviewPage} from "../position-overview/position-overview";
+
 @Component({
   selector: 'page-list-master',
   templateUrl: 'list-master.html'
 })
-export class ListMasterPage {
-  currentItems: Item[];
+export class ListMasterPage{
+  properties: Property[];
+  private subscription: Subscription;
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+
+  constructor(
+    public navCtrl: NavController,
+    public modalCtrl: ModalController,
+    private propertiesService : PropertiesServiceProvider,
+    public userService: UserServiceProvider,
+  ) {
+
   }
 
   /**
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
+    this.properties = this.propertiesService.getUserProperties();
+    this.subscription = this.propertiesService.propertiesChanged
+      .subscribe(
+        (properties: Property[]) => {
+          this.properties = properties;
+        }
+      );
+
   }
 
   /**
@@ -27,28 +48,23 @@ export class ListMasterPage {
    * modal and then adds the new item to our data source if the user created one.
    */
   addItem() {
-    let addModal = this.modalCtrl.create('ItemCreatePage');
-    addModal.onDidDismiss(item => {
-      if (item) {
-        this.items.add(item);
-      }
-    })
+    let addModal = this.modalCtrl.create(LoginPage);
     addModal.present();
   }
 
   /**
    * Delete an item from the list of items.
    */
-  deleteItem(item) {
-    this.items.delete(item);
+  deleteItem(propertyId) {
+    this.propertiesService.deleteProperty(propertyId);
   }
 
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
+  openItem(property: Property) {
+    this.navCtrl.push(PositionOverviewPage, {
+      property: property
     });
   }
 }

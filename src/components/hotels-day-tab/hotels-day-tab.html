@@ -1,0 +1,73 @@
+<div class="day_box day-box-events">
+  <div class="centrar" style="margin: 8px auto 4px;">
+    <div class="lead margin0">
+      <div *ngIf="hotelsLists.firstList" class="hotels-list-wrapper">
+        <p class="lead gris">
+          {{hotelsLists.firstList.length}} {{firstListText}}
+        </p>
+        <button *ngIf="!hotelsLists.showFirstList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showFirstList = 1" translate>See list</button>
+        <button *ngIf="hotelsLists.showFirstList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showFirstList = 0" translate>Close list</button>
+        <div class="hotels-list"  *ngIf="hotelsLists.showFirstList">
+          <div class="media hotels-list-item" *ngFor=" let hotel of hotelsLists.firstList">
+            <div class="media-left"  style="width: 33%">
+              <img class="media-object img-responsive" [src]="hotel.picture">
+            </div>
+            <div class="media-body text-left">
+              <h5 class="media-heading">{{hotel.name}}</h5>
+              <p class="marginTop10"><price [amount]="hotel.usualPrice"></price> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> <span class="hotel-color"><price [amount]="hotel.todaysPrice"></price></span></p>
+            </div>
+          </div>
+        </div>
+
+        <button *ngIf="hotelsLists.showFirstList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showFirstList = 0" translate>Close list</button>
+      </div>
+
+
+      <div *ngIf="hotelsLists.secondList" class="hotels-list-wrapper">
+        <p class="lead gris">
+          {{hotelsLists.secondList.length}} {{secondListText}}
+        </p>
+        <button *ngIf="!hotelsLists.showSecondList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showSecondList = 1" translate>See list</button>
+        <button *ngIf="hotelsLists.showSecondList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showSecondList = 0" translate>Close list</button>
+        <div class="hotels-list"  *ngIf="hotelsLists.showSecondList">
+          <div class="media hotels-list-item" *ngFor=" let hotel of hotelsLists.secondList">
+            <div class="media-left"  style="width: 33%">
+              <img class="media-object img-responsive" [src]="hotel.picture">
+            </div>
+            <div class="media-body text-left">
+              <h5 class="media-heading">{{hotel.name}}</h5>
+              <p class="marginTop10"><price [amount]="hotel.usualPrice"></price> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> <span class="hotel-color"><price [amount]="hotel.todaysPrice"></price></span></p>
+            </div>
+          </div>
+        </div>
+
+        <button *ngIf="hotelsLists.showSecondList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showSecondList = 0" translate>Close list</button>
+      </div>
+
+
+      <div *ngIf="hotelsLists.thirdList" class="hotels-list-wrapper">
+        <p class="lead gris">
+          {{hotelsLists.thirdList.length}} {{thirdListText}}
+        </p>
+        <button *ngIf="!hotelsLists.showThirdList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showThirdList = 1" translate>See list</button>
+        <button *ngIf="hotelsLists.showThirdList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showThirdList = 0" translate>Close list</button>
+        <div class="hotels-list"  *ngIf="hotelsLists.showThirdList">
+          <div class="media hotels-list-item" *ngFor=" let hotel of hotelsLists.thirdList">
+            <div class="media-left"  style="width: 33%">
+              <img class="media-object img-responsive" [src]="hotel.picture">
+            </div>
+            <div class="media-body text-left">
+              <h5 class="media-heading">{{hotel.name}}</h5>
+              <p class="marginTop10"><price [amount]="hotel.usualPrice"></price> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> <span class="hotel-color"><price [amount]="hotel.todaysPrice"></price></span></p>
+            </div>
+          </div>
+        </div>
+
+        <button *ngIf="hotelsLists.showThirdList" class="btn btn-sm show-hide-list-button" (click)="hotelsLists.showThirdList = 0" translate>Close list</button>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

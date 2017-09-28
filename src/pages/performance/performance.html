@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Performance Ranking</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <property-item *ngFor="let rankingItem of ranking;let index = index" [property]="rankingItem" [position]="index"></property-item>
+  </ion-list>
+</ion-content>

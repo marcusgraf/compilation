@@ -1,18 +1,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>{{ property.name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+  <div class="property-profile" text-center #profilePic [style.background-image]="'url(' + property.largeImage + ')'">
   </div>
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
+  <div class="property-detail">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 no-padding no-margin *ngFor="let overviewBox of overviewBoxes">
+          <overview-box tappable [data]="overviewBox" (click)="openItem(overviewBox)"></overview-box>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

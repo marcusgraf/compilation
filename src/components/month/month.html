@@ -1,0 +1,27 @@
+<ion-card >
+  <ion-card-header>{{month.name}}</ion-card-header>
+  <ion-card-content no-padding no-margin>
+    <ion-grid>
+      <ion-row  *ngFor="let days of month.weeks">
+        <ion-col no-padding no-margin *ngFor="let day of days">
+          <div *ngIf="day.month === month.number">
+            <div *ngIf="day.past || !day.free">
+              {{day.day}}
+            </div>
+            <div *ngIf="!day.past && day.free">
+              <div *ngIf="dataToShow.id === 0">
+                <span [ngClass]="{'rise-price': day.risePrice, 'lower-price': day.lowerPrice, 'recommendation': day.risePrice || day.lowerPrice}">{{day.day}}</span>
+              </div>
+              <div *ngIf="dataToShow.id === 1">
+                <span [ngClass]="{'recommendation minimum-stay-alert': day.minimumStayAlert, 'minimum-stay-value': !day.minimumStayAlert}">{{day.minimumStay}}</span>
+              </div>
+            </div>
+            <div *ngIf="dataToShow.id === 2">
+              <span [ngClass]="{'position-value': !day.past && day.free, 'white-position-value': day.past || !day.free}" [innerHTML]="day.positionSymbol"></span>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

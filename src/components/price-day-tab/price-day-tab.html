@@ -1,0 +1,18 @@
+<h1>Precio</h1>
+<h3><price [amount]="day.actualPrice"></price> </h3>
+
+<div *ngIf="day.free">
+  <h3 *ngIf="day.actualPrice !== day.recommendedPrice">
+    <price [amount]="day.recommendedPrice"></price>
+  </h3>
+  <form (submit)="changePrice()">
+    <ion-list>
+      <ion-item>
+        <ion-label inline>New price</ion-label>
+        <ion-input type="number" [(ngModel)]="newPrice" name="new"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button>Change price</button>
+  </form>
+</div>
+

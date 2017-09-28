@@ -1,0 +1,7 @@
+<ion-item>
+  <ion-avatar item-start>
+    <img [src]="composeImgUrl(property.img)" />
+  </ion-avatar>
+  <h2>{{position + 1}} - {{property.nombre}}</h2>
+  <p> <price [amount]="property.IngresosEstimados"></price></p>
+</ion-item>

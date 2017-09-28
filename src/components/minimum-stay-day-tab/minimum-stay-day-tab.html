@@ -1,0 +1,13 @@
+<h1>Minimum Stay</h1>
+<h3>{{day.minimumStay}}</h3>
+<h3 *ngIf="day.minimumStayAlert">Minimum stay problem</h3>
+
+<form (submit)="changeMinimumStay()">
+  <ion-list>
+    <ion-item>
+      <ion-label inline>New minimum stay value</ion-label>
+      <ion-input type="number" [(ngModel)]="newMinimumStayValue" name="new"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button>Change minimum stay</button>
+</form>

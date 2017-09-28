@@ -1,0 +1,23 @@
+<div class="dayNumber">{{day.day}}</div>
+<div *ngIf="showEvents">
+  <ion-icon name="star" *ngIf="day.eventsCount > 0"></ion-icon>
+  <ion-icon name="star" *ngIf="day.eventsCount > 1"></ion-icon>
+  <ion-icon name="star" *ngIf="day.eventsCount > 2"></ion-icon>
+</div>
+<div *ngIf="showOcuppancy">
+  {{ day.occupancyRate}} %
+</div>
+
+<div text-center *ngIf="day.free && !day.past">
+  <div *ngIf="dataToShow.id === 0">
+    {{ day.actualPrice}}
+    <strong *ngIf="day.actualPrice !== day.recommendedPrice">{{day.recommendedPrice}}</strong>
+  </div>
+  <div  *ngIf="dataToShow.id === 1">
+    {{ day.minimumStay}}
+    <strong *ngIf="day.minimumStayAlert">!!!</strong>
+  </div>
+</div>
+<div *ngIf="dataToShow.id === 2">
+  <div text-center [ngClass]="{'position-value': !day.past && day.free, 'white-position-value': day.past || !day.free}" [innerHTML]="day.positionSymbol"></div>
+</div>

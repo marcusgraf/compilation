@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{month.name}} {{month.year}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openPreferences()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid (swipe)="swipeEvent($event)">
+    <ion-row  *ngFor="let days of month.weeks">
+      <ion-col *ngFor="let day of days">
+        <div *ngIf="day.month === month.number">
+          <day tappable margin [day]="day" [dataToShow]="dataToShow" [showOcuppancy]="showOccupancy" (click)="openDay(day)"></day>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

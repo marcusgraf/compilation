@@ -13,20 +13,19 @@
 </ion-header>
 
 <ion-content>
-
   <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
+    <ion-item-sliding *ngFor="let property of properties">
+      <button ion-item (click)="openItem(property)">
         <ion-avatar item-start>
-          <img [src]="item.profilePic" />
+          <img [src]="property.smallImage" />
         </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+        <h2>{{property.name}}</h2>
+        <p>{{property.Direccion}}</p>
+        <ion-note item-end *ngIf="property.nombrePropietario">{{property.hostName}}</ion-note>
       </button>
 
       <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
+        <button ion-button color="danger" (click)="deleteItem(property.id)">
           {{ 'DELETE_BUTTON' | translate }}
         </button>
       </ion-item-options>

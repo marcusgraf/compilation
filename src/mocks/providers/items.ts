@@ -1,3 +1,4 @@
+/*
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
@@ -53,9 +54,9 @@ export class Items {
       }
     ];
 
-    for (let item of items) {
+/!*    for (let item of items) {
       this.items.push(new Item(item));
-    }
+    }*!/
   }
 
   query(params?: any) {
@@ -84,3 +85,4 @@ export class Items {
     this.items.splice(this.items.indexOf(item), 1);
   }
 }
+*/

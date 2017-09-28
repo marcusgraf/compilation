@@ -1,0 +1,37 @@
+page-position-overview {
+  .property-profile {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    height: 125px;
+  }
+
+  .property-detail {
+    width: 100%;
+    background: white;
+    position: absolute;
+  }
+
+  .position-value {
+    color: #007CA6;
+    font-weight: bolder;
+  }
+
+  .recommendation{
+    border-radius: 3px;
+    padding: 1px;
+    color: white;
+  }
+
+  .day-border-left{
+    border-left: 1px solid lightgrey;
+  }
+
+  .no-day-border-left{
+    border-left: 1px solid white;
+  }
+
+  .day-border-bottom{
+    border-bottom: 1px solid lightgrey;
+  }
+}

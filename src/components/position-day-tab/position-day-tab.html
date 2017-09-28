@@ -1,0 +1,31 @@
+<div *ngIf="day.past || !day.free">
+  <h1>Occupied</h1>
+</div>
+
+<div *ngIf="day.visibility===1 && day.position>0">
+  <h1 text-center class="position-value"> <span [innerHTML]="day.positionSymbol"></span><sup>{{ordinalSupText(day.positionSymbol)}}</sup> page</h1>
+  <p>When searching in {{property.address}}</p>
+  <table>
+    <tr><td width="45%" translate class="table-header">Nights</td><td width="45%" translate class="table-header">Rooms</td><td width="10%"  translate class="table-header">Page</td></tr>
+    <tr *ngFor="let x of positionData">
+      <td>{{x.nights}}</td>
+      <td>{{x.rooms | translate}}</td>
+      <td><b>{{x.numpag}}</b></td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="day.visibility === 2">
+  <h1 text-center class="position-value">{{day.positionSymbol}}</h1>
+  <p>This is the last day of a period and your listing does not show due to the <b>minimum number of nights</b> you have specified in your Airbnb settings</p>
+</div>
+
+<div *ngIf="day.visibility === 3">
+  <h1 text-center class="position-value">{{day.positionSymbol}}</h1>
+  <p>Your listing can not appear when searching due to the <b class="alerta">minimum number of nights</b> per booking that you have specified in Airbnb</p>
+</div>
+
+<div *ngIf="day.visibility === 4 || (day.visibility===1 && day.position===0)">
+  <h1 text-center class="position-value" [innerHTML]="day.positionSymbol"></h1>
+  <p>Your listing does not appear this day in the first 18 pages when searching in <span class="morado"><b>'{{property.address}}'</b></span> without any filters. (It will probably appear if the Airbnb user applies some filters.)</p>
+</div>

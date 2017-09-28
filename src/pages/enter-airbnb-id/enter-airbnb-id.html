@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>EnterAirbnbIdPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (submit)="addPropertyByID()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>{{ 'AIRBNB_ID_OR_LINK' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="airbnbIdToAdd" name="id"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>{{ 'ADD' | translate }}</button>
+      </div>
+
+    </ion-list>
+  </form>
+
+  <div *ngIf="showError">
+    <h1>Ups!</h1>
+    <p [innerHTML]="this.helpMessage"></p>
+  </div>
+</ion-content>
