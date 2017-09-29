@@ -35,7 +35,7 @@ export class TutorialPage {
     public menu: MenuController,
     translate: TranslateService,
     private propertiesService: PropertiesServiceProvider,
-    private settingsService: Settings
+    private settingsService: Settings,
   ) {
     translate.get("TUTORIAL").subscribe(
       (values) => {
@@ -74,6 +74,11 @@ export class TutorialPage {
         {
           title: tutorial_text['SLIDE3_TITLE'],
           description: tutorial_text['SLIDE3_DESCRIPTION'],
+          image: 'assets/img/ica-slidebox-img-3.png',
+        },
+        {
+          title: tutorial_text['SLIDE4_TITLE'],
+          description: tutorial_text['SLIDE4_DESCRIPTION'],
           image: 'assets/img/ica-slidebox-img-3.png',
         }
       ];

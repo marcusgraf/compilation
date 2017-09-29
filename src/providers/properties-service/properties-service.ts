@@ -69,10 +69,9 @@ export class PropertiesServiceProvider {
   }
 
   deleteProperty(id) {
-    this.properties = this.properties.filter(property => property.id !== id);
-
-    return this.api.get('jBorrarPropiedad', {ida: id}).subscribe(
+    return this.vayooApiService.delete('MyListings/' + id).subscribe(
       (resp) => {
+        this.properties = this.properties.filter(property => property.id !== id);
         this.propertiesChanged.next(this.properties.slice());
       },
     );

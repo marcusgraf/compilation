@@ -11,20 +11,22 @@
   "TUTORIAL": {
     "SKIP_BUTTON" : "Skip",
     "CONTINUE_BUTTON" : "Continue",
-    "SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
-    "SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
-    "SLIDE2_TITLE": "How to use the Super Starter",
-    "SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
-    "SLIDE3_TITLE": "Getting Started",
-    "SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
-    "SLIDE4_TITLE": "Ready to Play?"
+    "SLIDE1_TITLE": "Welcome to Is my property findable? ",
+    "SLIDE1_DESCRIPTION": "<b>Is my property findable?</b> Is the new App powered by Vayoo that indicates your daily search position on Airbnb.",
+    "SLIDE2_TITLE": "How to use Is my property findable?",
+    "SLIDE2_DESCRIPTION": "Link your account for a better and faster optimization. Please note that there is no human interaction in this process, we do not see and we do not keep your password. All the process is secured by an encrypting file system.",
+    "SLIDE3_TITLE": "Have a look at your calendar",
+    "SLIDE3_DESCRIPTION": "Here you can have can have an overview of the following months. Remember that your average search position is calculated from the next 21 free days. The further you free days are in your calendar, the higher your search position will be as there will be more competition in your area.",
+    "SLIDE4_TITLE": "Select a specific day.",
+    "SLIDE4_DESCRIPTION": " Here you can see the different search positions in which you are depending on different filters.",
+    "SLIDE5_TITLE": "Ready to Rumble?"
   },
 
 
   "WELCOME": {
     "INTRO" : "How to find your property?",
-    "LINK_ACCOUNT": "Link your account airbnb account",
-    "ENTER_AIRBNB_ID": "Enter property's airbnb identifier",
+    "LINK_ACCOUNT": "Link your Airbnb account",
+    "ENTER_AIRBNB_ID": "Enter property's Airbnb identifier",
     "FIND_PROPERTY": "Find your property on the map"
   },
 
@@ -37,8 +39,8 @@
 
   "ADD_PROPERTY": {
     "TITLE" : "How to find your property?",
-    "LINK_ACCOUNT": "Link your account airbnb account",
-    "ENTER_AIRBNB_ID": "Enter property's airbnb identifier",
+    "LINK_ACCOUNT": "Link your Airbnb account",
+    "ENTER_AIRBNB_ID": "Enter property's Airbnb identifier",
     "FIND_PROPERTY": "Find your property on the map"
   },
 
@@ -53,8 +55,8 @@
 
 
   "ENTER_AIRBNB_ID": {
-    "TITLE" : "Enter airbnb id",
-    "AIRBNB_ID_OR_LINK": "Email",
+    "TITLE" : "Enter Airbnb id",
+    "AIRBNB_ID_OR_LINK": "Listing url or id",
     "ADD_BUTTON": "Add property"
   },
 
@@ -65,14 +67,14 @@
 
 
   "POSITION_OVERVIEW": {
-    "DATA_DESCRIPTION": "The Airbnb page in which your property appears when searching in Madrid",
+    "DATA_DESCRIPTION": "The Airbnb page in which your property appears when searching in {{ value }}",
     "PROCESSING" : "We are processing your data",
-    "PROCESSING_DESCRIPTION" : "It can takes up to 20 minutes"
+    "PROCESSING_DESCRIPTION" : "It can take up to 24 hours. We'll send you a notification once is done"
   },
 
 
   "DAY": {
-    "OCUPPIED": "Occupied",
+    "OCUPPIED": "Booked or blocked",
     "POSITION": {
       "PAGE": "page",
       "KEYWORD": "When searching in {{value}}",
@@ -90,7 +92,7 @@
     "INTRO" : "How to find your property?",
     "LANGUAGE": "Language",
     "CURRENCY": "Currency",
-    "SUBSCRIBE_BUTTON" : "Suscription",
+    "SUBSCRIBE_BUTTON" : "Subscription",
     "ENGLISH": "English",
     "SPANISH": "Español",
     "FRENCH": "French",
@@ -106,7 +108,8 @@
     "EMAIL": "Email",
     "SEND": "Send",
     "THANKS": "We will get back to you as soon as possible. Thanks for your patience.",
-    "PROBLEM": "Ups! Something when wrong"
+    "PROBLEM": "Ups! Something when wrong",
+    "TUTORIAL_BUTTON": "See tutorial"
   }
 
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {HelpServiceProvider} from "../../providers/help-service/help-service";
+import {TutorialPage} from "../tutorial/tutorial";
 
 /**
  * Generated class for the HelpPage page.
@@ -48,5 +49,9 @@ export class HelpPage {
         toast.present();
       }
     );
+  }
+
+  goTutorial() {
+    this.navCtrl.push(TutorialPage);
   }
 }
