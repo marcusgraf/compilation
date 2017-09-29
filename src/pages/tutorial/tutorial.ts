@@ -10,6 +10,7 @@ import {Settings} from "../../providers/settings";
 import {Page} from "ionic-angular/navigation/nav-util";
 import {Subscription} from "rxjs/Subscription";
 import {Property} from "../../models/property";
+import {HelpPage} from "../help/help";
 
 
 
@@ -90,7 +91,7 @@ export class TutorialPage {
   startApp() {
     this.settingsService.setValue('hasSeenTutorial', true);
 
-    this.navCtrl.setRoot(this.nextPage, {}, {
+    this.navCtrl.setRoot(HelpPage, {}, {
       animate: true,
       direction: 'forward'
     });
@@ -104,24 +105,6 @@ export class TutorialPage {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
 
-    this.properties = this.propertiesService.getUserProperties();
-    this.subscription = this.propertiesService.propertiesChanged
-      .subscribe(
-        (properties: Property[]) => {
-          this.properties = properties;
-          if (this.properties.length > 0){
-            this.nextPage = TabsPage;
-          }else{
-            this.nextPage = WelcomePage;
-          }
-        }
-      );
-
-    if (this.properties.length > 0){
-      this.nextPage = TabsPage;
-    }else{
-      this.nextPage = WelcomePage;
-    }
   }
 
   ionViewWillLeave() {

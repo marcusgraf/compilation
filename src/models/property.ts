@@ -4,7 +4,6 @@ export class Property {
   id: number;
   name: string;
   address: string;
-  searchKeywork: string;
   airbnbId: number;
   hostId: number;
   hostName: string;
@@ -25,7 +24,6 @@ export class Property {
     this.id = property.idAlojamiento;
     this.name = property.nombre;
     this.address = property.direccion;
-    this.searchKeywork = property.sitio;
     this.hostId = property.idPropietario;
     this.hostName = property.nombrePropietario;
     this.airbnbId = property.idExterno;

@@ -18,6 +18,7 @@ export class ItemDetailPage {
   property: Property;
   overviewBoxes: {}[];
   recommendations: number;
+  param: Object;
 
   constructor(
     public navCtrl: NavController,
@@ -35,6 +36,7 @@ export class ItemDetailPage {
       {id: 4, name: 'bookings', title: 'In your area on monday', icon: 'bookmarks', data: '', page: BookingsPage},
       {id: 5, name: 'area', title: 'Area average revenue', icon: 'map', data: '', page: AreaPage},
     ];
+    this.param = {value: this.property.address};
   }
 
   ionViewDidLoad() {

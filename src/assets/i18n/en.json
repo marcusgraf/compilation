@@ -80,9 +80,9 @@
       "KEYWORD": "When searching in {{value}}",
       "NIGHTS": "Nights",
       "ROOMS": "Rooms",
-      "LAST_DAY_PERIOD": "This is the last day of a period and your listing does not show due to the <b>minimum number of nights</b> you have specified in your Airbnb settings",
-      "MINIMUM_NIGTHS_PROBLEM": "Your listing can not appear when searching due to the <b>minimum number of nights</b> per booking that you have specified in Airbnb",
-      "NOT_APPEARS": "Your listing does not appear this day in the first 18 pages when searching in <b>'{{value}'</b></span> without any filters. (It will probably appear if the Airbnb user applies some filters.)"
+      "LAST_DAY_PERIOD": "This is the last day of a period and your listing does not show due to the minimum number of nights you have specified in your Airbnb settings",
+      "MINIMUM_NIGTHS_PROBLEM": "Your listing can not appear when searching due to the minimum number of nights per booking that you have specified in Airbnb",
+      "NOT_APPEARS": "Your listing does not appear this day in the first 18 pages when searching in '{{value}' without any filters. (It will probably appear if the Airbnb user applies some filters.)"
     }
   },
 

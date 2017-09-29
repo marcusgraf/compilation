@@ -23,7 +23,7 @@ export class PositionDayTabComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.param = {value: this.property.searchKeywork};
+    this.param = {value: this.property.address};
 
     if (this.day.visibility === 1 && this.day.position>0){
       this.dayService.init(this.property.id);
