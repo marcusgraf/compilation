@@ -49,7 +49,6 @@ export class Property {
   }
 
   processRecommendations(recommendations) {
-
     this.recommendations = recommendations.map((day, index) => new Day(day, index));
     this.countRecommendations();
     this.countMinimumStayProblems();
@@ -65,7 +64,7 @@ export class Property {
     let monthsArray = [{number: nextMonth, year: currentYear}];
     this.yearRecommendations = [];
 
-    for (let i = 0; i !== 3; i++){
+    for (let i = 0; i !== 2; i++){
       nextMonth++;
       if (nextMonth > 11) {
         nextMonth = 0;

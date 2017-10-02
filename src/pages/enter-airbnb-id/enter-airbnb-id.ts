@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {PropertiesServiceProvider} from "../../providers/properties-service/properties-service";
 import {TranslateService} from "@ngx-translate/core";
-import {MainPage} from "../pages";
 import {HelpServiceProvider} from "../../providers/help-service/help-service";
+import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the EnterAirbnbIdPage page.
@@ -18,12 +18,10 @@ import {HelpServiceProvider} from "../../providers/help-service/help-service";
   templateUrl: 'enter-airbnb-id.html',
 })
 export class EnterAirbnbIdPage {
-
   airbnbIdToAdd: number;
   showError: boolean;
   helpMessage: string;
 
-  // Our translated text strings
   private loginErrorString: string;
   constructor(
     public navCtrl: NavController,
@@ -44,8 +42,8 @@ export class EnterAirbnbIdPage {
 
   addPropertyByID() {
     this.propertiesService.addPropertyByAirbnbId(this.airbnbIdToAdd).subscribe(
-      (resp) => {
-        this.navCtrl.push(MainPage);
+      (ok) => {
+        this.navCtrl.push(TabsPage);
       },
       (error) => {
         const errorBody = JSON.parse(error._body);

@@ -40,10 +40,7 @@ export class VayooApiServiceProvider {
           this.userService.currencies = data.currencies;
         }
       );
-
-
     });
-
   }
 
   getUuid(){
@@ -124,39 +121,4 @@ export class VayooApiServiceProvider {
   patch(endpoint: string, body: any, options?: RequestOptions) {
     return this.http.put(this.url + endpoint, body, this.requestOptions);
   }
-
-/*  getUUID() {
-    if (this.device.uuid) return new Promise<string>(() => { return this.device.uuid });
-    // No es un device, tenemos que devolver el uuid que haya en localstorage, y si no hay, crearle uno
-/!*    return this.settingsService.getValue('UUID').then((uuid) => {
-
-      if (uuid && typeof uuid !== "undefined") return uuid;
-      else {
-        let tempUUID: string = this.createUUID();
-        this.settingsService.setValue("UUID", tempUUID);
-        return tempUUID;
-      }*!/
-    return this.settingsService.load().then((settings) => {
-
-      if (settings && settings.UUID !== "undefined") return settings.UUID;
-      else {
-        let tempUUID: string = this.createUUID();
-        this.settingsService.setValue("UUID", tempUUID);
-        return tempUUID;
-      }
-    });
-  }
-
-  createUUID() {
-    let s = [];
-    let hexDigits = "0123456789abcdef";
-    for (let i = 0; i < 36; i++) {
-      s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
-    }
-    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
-    s[19] = hexDigits.substr(s[19] & 0x3 | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
-    //s[8] = s[13] = s[18] = s[23] = "-";
-    return s.join("");
-  }*/
-
 }

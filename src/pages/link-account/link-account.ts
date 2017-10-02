@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
 import {PropertiesServiceProvider} from "../../providers/properties-service/properties-service";
-import {MainPage} from "../pages";
 import {HelpServiceProvider} from "../../providers/help-service/help-service";
+import {TabsPage} from "../tabs/tabs";
 
 @IonicPage()
 @Component({
@@ -23,7 +23,6 @@ export class LinkAccountPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public toastCtrl: ToastController,
     public translateService: TranslateService,
     public propertiesService: PropertiesServiceProvider,
     public helpService: HelpServiceProvider,
@@ -39,7 +38,7 @@ export class LinkAccountPage {
   linkAccount() {
     this.propertiesService.addPropertyByAirbnbAccount(this.account.email, this.account.password).subscribe(
       (resp) => {
-          this.navCtrl.push(MainPage);
+          this.navCtrl.push(TabsPage);
       },
       (error) => {
         const errorBody = JSON.parse(error._body);

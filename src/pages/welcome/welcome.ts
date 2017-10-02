@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { LoginPage } from '../login/login';
-import { SignupPage } from '../signup/signup';
 import {MapPage} from "../map/map";
 import {LinkAccountPage} from "../link-account/link-account";
 import {EnterAirbnbIdPage} from "../enter-airbnb-id/enter-airbnb-id";

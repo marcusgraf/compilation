@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
 import { MenuController, NavController } from 'ionic-angular';
 
-import { WelcomePage } from '../welcome/welcome';
-
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
-import {PropertiesServiceProvider} from "../../providers/properties-service/properties-service";
-import {TabsPage} from "../tabs/tabs";
 import {Settings} from "../../providers/settings";
-import {Page} from "ionic-angular/navigation/nav-util";
-import {Subscription} from "rxjs/Subscription";
-import {Property} from "../../models/property";
-import {HelpPage} from "../help/help";
+import {WelcomePage} from "../welcome/welcome";
 
 
 
@@ -27,15 +20,11 @@ export interface Slide {
 export class TutorialPage {
   slides: Slide[];
   showSkip = true;
-  nextPage: Page;
-  properties: Property[];
-  private subscription: Subscription;
 
   constructor(
     public navCtrl: NavController,
     public menu: MenuController,
     translate: TranslateService,
-    private propertiesService: PropertiesServiceProvider,
     private settingsService: Settings,
   ) {
     translate.get("TUTORIAL").subscribe(
@@ -91,7 +80,7 @@ export class TutorialPage {
   startApp() {
     this.settingsService.setValue('hasSeenTutorial', true);
 
-    this.navCtrl.setRoot(HelpPage, {}, {
+    this.navCtrl.setRoot(WelcomePage, {}, {
       animate: true,
       direction: 'forward'
     });
@@ -100,16 +89,4 @@ export class TutorialPage {
   onSlideChangeStart(slider) {
     this.showSkip = !slider.isEnd();
   }
-
-  ionViewDidEnter() {
-    // the root left menu should be disabled on the tutorial page
-    this.menu.enable(false);
-
-  }
-
-  ionViewWillLeave() {
-    // enable the root left menu when leaving the tutorial page
-    this.menu.enable(true);
-  }
-
 }

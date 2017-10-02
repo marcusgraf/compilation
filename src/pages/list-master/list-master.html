@@ -1,10 +1,10 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton>
     <ion-title>{{ 'PROPERTIES.TITLE' | translate }}</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
+      <button  ion-button icon-only (click)="addItem()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -20,7 +20,7 @@
           <img [src]="property.smallImage" />
         </ion-avatar>
         <h2>{{property.name}}</h2>
-        <p>{{property.Direccion}}</p>
+        <p>{{property.id}}</p>
         <ion-note item-end *ngIf="property.nombrePropietario">{{property.hostName}}</ion-note>
       </button>
 
