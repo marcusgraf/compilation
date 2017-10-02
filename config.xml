@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.vayoo.isMyListingFindable" version="1.1.19" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.vayoo.isMyListingFindable" version="1.1.20" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Is my listing findable?</name>
     <description>Your search position on Airbnb</description>
     <author email="support@vayoo.com" href="http://www.vayoo.com/">Vayoo Team</author>
@@ -79,6 +79,7 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
         <icon height="1024" src="resources/ios/icon/icon-1024.png" width="1024" />
     </platform>
+    <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
     <plugin name="cc.fovea.cordova.purchase" spec="^7.0.2">
         <variable name="BILLING_KEY" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqjlRPbzF8FjxV9nd3RK2bbsiHNShPiSFUNFTFv4lCZTFLt0zzEhxCiRf3WsPAteTo7Hb1L0sfkFEorIcj4QAWnCt/nKd9RqQUTGYFQ3gFFus8LsXNCM7vhjRWR7FLZGUx5XqRwA6XMoEmFp2AptbOr77qOjfxTApEM7mJrq/xIrd1Ex32MV/B1Np4udxRwJmceyQxiZzMaKzDZe5bkToOUL2pof7GY32HfI+bjG1+UcYydUdIelElK6dpPrR0rnT868I8ruGjTYn29JNG2Si3BqSF6Z3H4KxGXEyxhqAracf4whTCi6VComhCxZId2goYy2S7pJWrE3VAovuBlCnpQIDAQAB" />
