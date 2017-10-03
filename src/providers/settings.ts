@@ -6,14 +6,17 @@ export class Settings {
   private SETTINGS_KEY: string = '_settings';
 
   settings: any;
-  currencies: {}[];
-  currentCurrency: Object;
+
 
   _defaults: any;
   _readyPromise: Promise<any>;
 
-  constructor(public storage: Storage, defaults: any) {
+  constructor(
+    public storage: Storage,
+    defaults: any,
+  ) {
     this._defaults = defaults;
+
   }
 
   load() {
@@ -68,10 +71,4 @@ export class Settings {
   get allSettings() {
     return this.settings;
   }
-
-/*  getCurrentCurrency(){
-    this.settings.getValue('currency').then((currency) => {
-      this.currentCurrency = currency;
-    });
-  }*/
 }

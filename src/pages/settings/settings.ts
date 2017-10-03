@@ -7,6 +7,7 @@ import { Settings } from '../../providers/settings';
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 import {UserServiceProvider} from "../../providers/user-service/user-service";
 import {StoreServiceProvider} from "../../providers/store-service/store-service";
+import {VayooApiServiceProvider} from "../../providers/vayoo-api-service/vayoo-api-service";
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -44,9 +45,9 @@ export class SettingsPage {
     public navParams: NavParams,
     public translate: TranslateService,
     public userService: UserServiceProvider,
-    public storeService: StoreServiceProvider
+    public storeService: StoreServiceProvider,
   ) {
-    this.currencies = this.settings.currencies;
+
   }
 
   _buildForm() {

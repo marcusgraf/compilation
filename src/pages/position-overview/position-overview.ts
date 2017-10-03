@@ -20,11 +20,13 @@ import {DayPage} from "../day/day";
 })
 export class PositionOverviewPage extends ItemDetailPage {
 
+
   ionViewDidLoad() {
     this.propertyService.init(this.property.id);
     this.propertyService.fetchPropertyRecommendations().subscribe(
       (recommendations) => {
         this.property.processRecommendations(recommendations);
+        this.param = {value: this.userService.currentUser.searchKeyword};
       }
     );
     this.propertyService.fetchPropertyPerformance().subscribe(

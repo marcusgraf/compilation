@@ -15,6 +15,7 @@ export class User {
   defaultCurrency: string;
   areaConfiguration: AreaConfiguration;
   mail: string = '';
+  searchKeyword: string;
 
   constructor(userData) {
     this.uuid = userData.uuid;
@@ -27,6 +28,7 @@ export class User {
     this.changesDoneToday = parseInt(userData.cambiosHechosHoy);
     this.changesLeft = this.maxChanges - this.changesDoneToday;
     this.userPremiumLevel = parseInt(userData.suscripcion);
+    this.searchKeyword = userData.sitio;
     // TODO eliminate
     // this.userPremiumLevel = service.userPremiumLevel = parseInt(4);
     this.registrationDate = userData.fechaAlta;

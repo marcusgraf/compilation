@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Subject} from "rxjs/Subject";
 import {User} from "../../models/user";
+import {VayooApiServiceProvider} from "../vayoo-api-service/vayoo-api-service";
 
 interface Users{
   [id: number]: User
@@ -12,7 +13,9 @@ export class UserServiceProvider {
   userChanged = new Subject<User>();
   currentUser: User;
 
-  constructor(){}
+  constructor(
+  ){
+  }
 
   saveUser(userData){
     const newUser = new User(userData);

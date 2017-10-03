@@ -18,12 +18,13 @@ export class PositionDayTabComponent implements OnInit{
 
   constructor(
     private dayService: DayServiceProvider,
+    private userService: UserServiceProvider,
   ) {
 
   }
 
   ngOnInit() {
-    this.param = {value: this.property.address};
+    this.param = {value: this.userService.currentUser.searchKeyword};
 
     if (this.day.visibility === 1 && this.day.position>0){
       this.dayService.init(this.property.id);

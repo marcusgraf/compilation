@@ -82,44 +82,6 @@ export class Api {
       );
   }
 
-  getV2(endPoint: string, params?: any, options?: RequestOptions) {
-
-    const loading = this.loadingCtrl.create({
-      content: 'Loading ...'
-    });
-    if (!options) {
-      options = new RequestOptions();
-    }
-
-    // Support easy query params for GET requests
-    let p = new URLSearchParams();
-
-    if (params) {
-      for (let k in params) {
-        p.set(k, encodeURIComponent(params[k]));
-      }
-
-    }
-    // Set the search field if we have params and don't already have
-    // a search field set in options.
-    options.search = !options.search && p || options.search;
-
-    loading.present();
-
-    return this.http.get(this.urlV2 + endPoint, this.requestOptions)
-      .map(
-      (response: Response) => {
-        const data = response.json();
-
-        this.userService.saveUserDataV2(data.profile);
-
-        return data;
-      }
-      )
-      .do((res: Response) => loading.dismiss()
-      );
-  }
-
   init() {
     return this.get('jInicio', { nida: '', lng: 'ES' });
   }
