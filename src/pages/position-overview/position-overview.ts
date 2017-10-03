@@ -32,8 +32,6 @@ export class PositionOverviewPage extends ItemDetailPage {
     this.propertyService.fetchPropertyPerformance().subscribe(
       (performanceData) => {
         this.property.processPerformance(performanceData);
-        // TODO eliminate
-        this.property.averagePositionPage = null;
         this.overviewBoxes[2]['data'] = this.property.averagePositionPage;
       }
     );

@@ -14,6 +14,8 @@
 
 <ion-content>
   <ion-list>
+
+<!--
     <ion-item-sliding *ngFor="let property of properties">
       <button ion-item (click)="openItem(property)">
         <ion-avatar item-start>
@@ -29,6 +31,31 @@
           {{ 'PROPERTIES.DELETE_BUTTON' | translate }}
         </button>
       </ion-item-options>
-    </ion-item-sliding>
+    </ion-item-sliding>-->
+    <ion-card *ngFor="let property of properties">
+      <img [src]="property.largeImage" (click)="openItem(property)">
+
+      <ion-card-content (click)="openItem(property)">
+        <ion-card-title>{{property.name}}</ion-card-title>
+        <p>{{property.address}}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small (click)="openItem(property)">
+            <ion-icon name="eye"></ion-icon>
+            <div>{{ 'PROPERTIES.SEE_BUTTON' | translate }}</div>
+          </button>
+        </ion-col>
+        <ion-col></ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small (click)="deleteItem(property.id)">
+            <ion-icon name="trash"></ion-icon>
+            <div>{{ 'PROPERTIES.DELETE_BUTTON' | translate }}</div>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
   </ion-list>
 </ion-content>

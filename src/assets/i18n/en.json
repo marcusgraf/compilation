@@ -11,9 +11,9 @@
   "TUTORIAL": {
     "SKIP_BUTTON" : "Skip",
     "CONTINUE_BUTTON" : "Continue",
-    "SLIDE1_TITLE": "Welcome to Is my property findable? ",
-    "SLIDE1_DESCRIPTION": "<b>Is my property findable?</b> Is the new App powered by Vayoo that indicates your daily search position on Airbnb.",
-    "SLIDE2_TITLE": "How to use Is my property findable?",
+    "SLIDE1_TITLE": "Welcome to Is my listing findable? ",
+    "SLIDE1_DESCRIPTION": "<b>Is my listing findable?</b> Is the new App powered by Vayoo that indicates your daily search position on Airbnb.",
+    "SLIDE2_TITLE": "How to use Is my listing findable?",
     "SLIDE2_DESCRIPTION": "Link your account for a better and faster optimization. Please note that there is no human interaction in this process, we do not see and we do not keep your password. All the process is secured by an encrypting file system.",
     "SLIDE3_TITLE": "Have a look at your calendar",
     "SLIDE3_DESCRIPTION": "Here you can have can have an overview of the following months. Remember that your average search position is calculated from the next 21 free days. The further you free days are in your calendar, the higher your search position will be as there will be more competition in your area.",
@@ -24,24 +24,25 @@
 
 
   "WELCOME": {
-    "INTRO" : "How to find your property?",
+    "INTRO" : "How to find your listing?",
     "LINK_ACCOUNT": "Link your Airbnb account",
-    "ENTER_AIRBNB_ID": "Enter property's Airbnb identifier",
-    "FIND_PROPERTY": "Find your property on the map"
+    "ENTER_AIRBNB_ID": "Enter listing's Airbnb identifier",
+    "FIND_PROPERTY": "Find your listing on the map"
   },
 
 
   "PROPERTIES": {
-    "TITLE": "Properties",
-    "DELETE_BUTTON" : "Delete"
+    "TITLE": "Listings",
+    "DELETE_BUTTON" : "Delete",
+    "SEE_BUTTON" : "See"
   },
 
 
   "ADD_PROPERTY": {
-    "TITLE" : "How to find your property?",
+    "TITLE" : "How to find your listing?",
     "LINK_ACCOUNT": "Link your Airbnb account",
-    "ENTER_AIRBNB_ID": "Enter property's Airbnb identifier",
-    "FIND_PROPERTY": "Find your property on the map"
+    "ENTER_AIRBNB_ID": "Enter listing's Airbnb identifier",
+    "FIND_PROPERTY": "Find your listing on the map"
   },
 
 
@@ -57,17 +58,17 @@
   "ENTER_AIRBNB_ID": {
     "TITLE" : "Enter Airbnb id",
     "AIRBNB_ID_OR_LINK": "Url or Id",
-    "ADD_BUTTON": "Add property"
+    "ADD_BUTTON": "Add listing"
   },
 
 
   "FIND_PROPERTY": {
-    "TITLE" : "Find your property"
+    "TITLE" : "Find your listing"
   },
 
 
   "POSITION_OVERVIEW": {
-    "DATA_DESCRIPTION": "The Airbnb page in which your property appears when searching in {{ value }}",
+    "DATA_DESCRIPTION": "The Airbnb page in which your listing appears when searching in {{ value }}",
     "PROCESSING" : "We are processing your data",
     "PROCESSING_DESCRIPTION" : "It can take up to 24 hours. We'll send you a notification once is done"
   },
@@ -89,7 +90,7 @@
 
   "SETTINGS": {
     "TITLE": "Settings",
-    "INTRO" : "How to find your property?",
+    "INTRO" : "How to find your listing?",
     "LANGUAGE": "Language",
     "CURRENCY": "Currency",
     "SUBSCRIBE_BUTTON" : "Subscription",

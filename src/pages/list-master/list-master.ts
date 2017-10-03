@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, ModalController, Platform} from 'ionic-angular';
+import {NavController, ModalController, Platform, ActionSheetController} from 'ionic-angular';
 
 import { ItemDetailPage } from '../item-detail/item-detail';
 
@@ -25,6 +25,7 @@ export class ListMasterPage{
     public modalCtrl: ModalController,
     private propertiesService : PropertiesServiceProvider,
     public userService: UserServiceProvider,
+    public actionSheetCtrl: ActionSheetController
   ) {
 
   }
@@ -56,7 +57,26 @@ export class ListMasterPage{
    * Delete an item from the list of items.
    */
   deleteItem(propertyId) {
-    this.propertiesService.deleteProperty(propertyId);
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Are you sure?',
+      buttons: [
+        {
+          text: 'Delete',
+          role: 'destructive',
+          handler: () => {
+            this.propertiesService.deleteProperty(propertyId);
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+
   }
 
   /**
