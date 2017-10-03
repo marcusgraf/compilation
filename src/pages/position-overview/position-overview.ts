@@ -56,6 +56,12 @@ export class PositionOverviewPage extends ItemDetailPage {
     if (index !== month.weeks.length - 1){
       styles.push('day-border-bottom');
     }
+
+    if (!day.free && day.month === month.number){
+      styles.push('day-occupied');
+    }
+
+
     return styles;
   }
 

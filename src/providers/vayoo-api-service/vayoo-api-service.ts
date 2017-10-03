@@ -6,8 +6,8 @@ import { UserServiceProvider } from "../user-service/user-service";
 import { LoadingController, Platform } from "ionic-angular";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/finally";
-import {Settings} from "../settings";
-import {Subject} from "rxjs/Subject";
+import { Settings } from "../settings";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class VayooApiServiceProvider {
@@ -37,7 +37,7 @@ export class VayooApiServiceProvider {
       this.initialisedChanged.next(this.initialised);
       this.get('Currencies').subscribe(
         (data: { currencies: {}[] }) => {
-          this.userService.currencies = data.currencies;
+          this.settingsService.currencies = data.currencies;
         }
       );
     });
@@ -81,7 +81,7 @@ export class VayooApiServiceProvider {
         const data = response.json();
 
         if (data.hasOwnProperty('profile')) {
-          this.userService.saveUserDataV2(data.profile);
+          this.userService.saveUser(data.profile);
         }
 
         return data;
@@ -115,7 +115,11 @@ export class VayooApiServiceProvider {
   }
 
   delete(endpoint: string, options?: RequestOptions) {
-    return this.http.delete(this.url + endpoint, this.requestOptions);
+    const loading = this.loadingCtrl.create({
+      content: 'Loading ...'
+    });
+    loading.present();
+    return this.http.delete(this.url + endpoint, this.requestOptions).finally(() => loading.dismiss());
   }
 
   patch(endpoint: string, body: any, options?: RequestOptions) {

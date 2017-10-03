@@ -63,16 +63,16 @@ export class StoreServiceProvider {
     this.store.when(this.getAvailableSubscription()).approved((p) => {
       console.log('storeService -> Suscription approved status: ' + p.state + ' owned: ' + p.owned);
 
-      if (!this.userService.checkUserIsSuscribed()){
+      if (!this.userService.currentUser.checkUserIsSuscribed()){
         console.log('storeService -> New user suscribed status: ' + p.state + ' owned: ' + p.owned);
 
         p.finish();
         this.purchaseOwned = p.owned;
         this.purchaseStatus = p.state;
 
-        let ticketText = 'El usuario ' + this.userService.clientId + ' se ha suscrito.';
-        if (this.userService.mail){
-          ticketText += 'Su mail es ' + this.userService.mail;
+        let ticketText = 'El usuario ' + this.userService.currentUser.clientId + ' se ha suscrito.';
+        if (this.userService.currentUser.mail){
+          ticketText += 'Su mail es ' + this.userService.currentUser.mail;
         }else{
           ticketText += 'No tenemos su mail.';
         }
@@ -108,9 +108,9 @@ export class StoreServiceProvider {
       .error(function () {
         console.error('storeService -> suscribing user order error');
 
-        let ticketText = 'El usuario ' + this.userService.clientId + 'no ha podido completar su compra debido a un error';
-        if (this.userService.mail){
-          ticketText += 'Su mail es ' + this.userService.mail;
+        let ticketText = 'El usuario ' + this.userService.currentUser.clientId + 'no ha podido completar su compra debido a un error';
+        if (this.userService.currentUser.mail){
+          ticketText += 'Su mail es ' + this.userService.currentUser.mail;
         }else{
           ticketText += 'No tenemos su mail.';
         }

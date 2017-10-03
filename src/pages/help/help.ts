@@ -50,8 +50,4 @@ export class HelpPage {
       }
     );
   }
-
-  goTutorial() {
-    this.navCtrl.push(TutorialPage);
-  }
 }

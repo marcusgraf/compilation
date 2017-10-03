@@ -128,7 +128,7 @@ export class HelpServiceProvider {
     email = email !== '' ? email : 'app@vayoo.com';
 
     let data = {
-      "RequesterName": 'User ' + this.userService.clientId,
+      "RequesterName": 'User ' + this.userService.currentUser.clientId,
       "Email": email,
       "Subject": "Login Problem",
       "Body": "this is a body",
@@ -136,8 +136,8 @@ export class HelpServiceProvider {
       "submitterId": this.agents.alejandro,
       "topicId": String(macroName),
       "CustomFields": [
-        {"id": 114095370854, "value": this.userService.clientId},
-        {"id": 114095370814, "value": this.userService.deviceId},
+        {"id": 114095370854, "value": this.userService.currentUser.clientId},
+        {"id": 114095370814, "value": this.userService.currentUser.deviceId},
         {"id": 114095370874, "value": this.api.appVersion},
         {"id": 114095371034, "value": null},
         {"id": 114095371054, "value": this.translateService.currentLang},
@@ -161,23 +161,23 @@ export class HelpServiceProvider {
     let extra_data_string = '';
 
     let data = {
-      "RequesterName": 'User ' + this.userService.clientId,
+      "RequesterName": 'User ' + this.userService.currentUser.clientId,
       "Email": email,
       "Subject": text,
       "Body": text,
       "AssigneeId": assignee_id,
       "topicId": null,
       "CustomFields": [
-        {"id": 114095370854, "value": this.userService.clientId},
-        {"id": 114095370814, "value": this.userService.deviceId},
+        {"id": 114095370854, "value": this.userService.currentUser.clientId},
+        {"id": 114095370814, "value": this.userService.currentUser.deviceId},
         {"id": 114095370874, "value": this.api.appVersion},
-        {"id": 114095371034, "value": this.userService.propertyId},
+        {"id": 114095371034, "value": this.userService.currentUser.propertyId},
         {"id": 114095371054, "value": this.translateService.currentLang},
         {"id": 114095371074, "value": 'app'},
         {"id": 114095371094, "value": ''},
         {"id": 114095371114, "value": day},
-        {"id": 114095371134, "value": this.userService.areaId},
-        {"id": 45304509, "value": this.userService.mail}
+        {"id": 114095371134, "value": this.userService.currentUser.areaId},
+        {"id": 45304509, "value": this.userService.currentUser.mail}
       ]
     };
     let headers = {
@@ -190,7 +190,7 @@ export class HelpServiceProvider {
 
   sendError(name, email, text, day) {
     console.log('helpService -> sending error');
-    name = typeof name !== 'undefined' ? name : 'User ' + this.userService.clientId;
+    name = typeof name !== 'undefined' ? name : 'User ' + this.userService.currentUser.clientId;
     email = email !== '' ? email : 'app@vayoo.com';
     let assignee_id = this.agents.support;
     text = typeof text !== 'undefined' ? text : 'El usuario no ha escrito nada';
@@ -203,23 +203,23 @@ export class HelpServiceProvider {
       dataType: 'json',
       contentType: 'application/json',
       data: {
-        "RequesterName": 'User ' + this.userService.clientId,
+        "RequesterName": 'User ' + this.userService.currentUser.clientId,
         "Email": email,
         "Subject": text,
         "Body": text,
         "AssigneeId": assignee_id,
         "topicId": null,
         "CustomFields": [
-          {"id": 114095370854, "value": this.userService.clientId},
-          {"id": 114095370814, "value": this.userService.deviceId},
+          {"id": 114095370854, "value": this.userService.currentUser.clientId},
+          {"id": 114095370814, "value": this.userService.currentUser.deviceId},
           {"id": 114095370874, "value": this.api.appVersion},
-          {"id": 114095371034, "value": this.userService.propertyId},
+          {"id": 114095371034, "value": this.userService.currentUser.propertyId},
           {"id": 114095371054, "value": this.translateService.currentLang},
           {"id": 114095371074, "value": 'app'},
           {"id": 114095371094, "value": ''},
           {"id": 114095371114, "value": day},
-          {"id": 114095371134, "value": this.userService.areaId},
-          {"id": 45304509, "value": this.userService.mail}
+          {"id": 114095371134, "value": this.userService.currentUser.areaId},
+          {"id": 45304509, "value": this.userService.currentUser.mail}
         ]
       },
       headers: {

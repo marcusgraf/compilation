@@ -69,7 +69,7 @@ export class Api {
         const data = response.json();
         if (data[0] === 0) {
           if (data[5]) {
-            this.userService.saveUserData(data[5][0]);
+            // this.userService.saveUserData(data[5][0]);
           }
           return data[1];
         }

@@ -46,7 +46,7 @@ export class SettingsPage {
     public userService: UserServiceProvider,
     public storeService: StoreServiceProvider
   ) {
-    this.currencies = this.userService.currencies;
+    this.currencies = this.settings.currencies;
   }
 
   _buildForm() {
@@ -69,7 +69,7 @@ export class SettingsPage {
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
       this.translate.use(v.language);
-      this.userService.currentCurrency = v.currency;
+      this.settings.currentCurrency = v.currency;
       this.settings.merge(this.form.value);
     });
   }
@@ -88,7 +88,7 @@ export class SettingsPage {
 
     this.translate.get(this.pageTitleKey).subscribe((res) => {
       this.pageTitle = res;
-    })
+    });
 
     this.settings.load().then(() => {
       this.settingsReady = true;
@@ -100,10 +100,6 @@ export class SettingsPage {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.pageTitle = event.translations['SETTINGS_TITLE'];
     });
-  }
-
-  ngOnChanges() {
-    console.log('Ng All Changes');
   }
 
   subscribe(){

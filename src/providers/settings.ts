@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-
 import { Storage } from '@ionic/storage';
 
-/**
- * A simple settings/config class for storing key/value pairs with persistence.
- */
 @Injectable()
 export class Settings {
   private SETTINGS_KEY: string = '_settings';
 
   settings: any;
+  currencies: {}[];
+  currentCurrency: Object;
 
   _defaults: any;
   _readyPromise: Promise<any>;
@@ -70,4 +68,10 @@ export class Settings {
   get allSettings() {
     return this.settings;
   }
+
+/*  getCurrentCurrency(){
+    this.settings.getValue('currency').then((currency) => {
+      this.currentCurrency = currency;
+    });
+  }*/
 }

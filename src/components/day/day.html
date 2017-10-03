@@ -19,5 +19,5 @@
   </div>
 </div>
 <div *ngIf="dataToShow.id === 2">
-  <div text-center [ngClass]="{'position-value': !day.past && day.free, 'white-position-value': day.past || !day.free}" [innerHTML]="day.positionSymbol"></div>
+  <div text-center [ngClass]="{'position-value': !day.past && day.free, 'grey-position-value': !day.free, 'white-position-value': day.past}" [innerHTML]="day.positionSymbol"></div>
 </div>
