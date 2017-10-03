@@ -24,6 +24,7 @@
         "@ionic-native/core": "3.12.1",
         "@ionic-native/device": "^4.3.0",
         "@ionic-native/google-maps": "3.12.1",
+        "@ionic-native/in-app-browser": "^4.3.0",
         "@ionic-native/in-app-purchase-2": "^4.3.0",
         "@ionic-native/splash-screen": "3.12.1",
         "@ionic-native/status-bar": "3.12.1",
@@ -34,6 +35,7 @@
         "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-device": "^1.1.4",
+        "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-statusbar": "^2.2.2",
         "cordova-plugin-whitelist": "^1.3.1",
@@ -58,7 +60,8 @@
             "ionic-plugin-keyboard": {},
             "cc.fovea.cordova.purchase": {
                 "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqjlRPbzF8FjxV9nd3RK2bbsiHNShPiSFUNFTFv4lCZTFLt0zzEhxCiRf3WsPAteTo7Hb1L0sfkFEorIcj4QAWnCt/nKd9RqQUTGYFQ3gFFus8LsXNCM7vhjRWR7FLZGUx5XqRwA6XMoEmFp2AptbOr77qOjfxTApEM7mJrq/xIrd1Ex32MV/B1Np4udxRwJmceyQxiZzMaKzDZe5bkToOUL2pof7GY32HfI+bjG1+UcYydUdIelElK6dpPrR0rnT868I8ruGjTYn29JNG2Si3BqSF6Z3H4KxGXEyxhqAracf4whTCi6VComhCxZId2goYy2S7pJWrE3VAovuBlCnpQIDAQAB"
-            }
+            },
+            "cordova-plugin-inappbrowser": {}
         },
         "platforms": [
             "android",

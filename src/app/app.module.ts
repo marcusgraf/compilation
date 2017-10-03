@@ -56,6 +56,7 @@ import { HelpServiceProvider } from '../providers/help-service/help-service';
 import {HelpPage} from "../pages/help/help";
 import { VayooApiServiceProvider } from '../providers/vayoo-api-service/vayoo-api-service';
 import { StoreServiceProvider } from '../providers/store-service/store-service';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -160,6 +161,7 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     Device,
     InAppPurchase2,
+    InAppBrowser,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },

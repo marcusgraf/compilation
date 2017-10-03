@@ -3,7 +3,7 @@ import {DayServiceProvider} from "../../providers/day-service/day-service";
 import {Day} from "../../models/day";
 import {Property} from "../../models/property";
 import {UserServiceProvider} from "../../providers/user-service/user-service";
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'position-day-tab',
@@ -19,6 +19,7 @@ export class PositionDayTabComponent implements OnInit{
   constructor(
     private dayService: DayServiceProvider,
     private userService: UserServiceProvider,
+    private iab: InAppBrowser
   ) {
 
   }
@@ -33,6 +34,10 @@ export class PositionDayTabComponent implements OnInit{
           this.positionData = data;
         }
       );
+    }else if(this.day.visibility === 3){
+      const browser = this.iab.create('https://www.vayoo.com/');
+      browser.show();
+
     }
   }
 
