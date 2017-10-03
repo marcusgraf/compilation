@@ -6,7 +6,7 @@ export class Settings {
   private SETTINGS_KEY: string = '_settings';
 
   settings: any;
-
+  currentCurrency;
 
   _defaults: any;
   _readyPromise: Promise<any>;

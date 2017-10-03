@@ -56,7 +56,7 @@
 
   "ENTER_AIRBNB_ID": {
     "TITLE" : "Enter Airbnb id",
-    "AIRBNB_ID_OR_LINK": "Listing url or id",
+    "AIRBNB_ID_OR_LINK": "Url or Id",
     "ADD_BUTTON": "Add property"
   },
 
@@ -111,6 +111,4 @@
     "PROBLEM": "Ups! Something when wrong",
     "TUTORIAL_BUTTON": "See tutorial"
   }
-
-
 }

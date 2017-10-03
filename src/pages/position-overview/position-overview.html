@@ -32,7 +32,7 @@
         <ion-card-content >
           <ion-row *ngFor="let week of month.weeks; let i = index">
             <ion-col no-padding *ngFor="let day of week" [ngClass]="dayStyle(day, month, i)" (click)="openDay(day, month)">
-              <day *ngIf="day.month === month.number" tappable margin [day]="day" [dataToShow]="overviewBoxes[2]" [showOcuppancy]="showOccupancy"></day>
+              <day *ngIf="day.month === month.number" tappable margin [day]="day" [dataToShow]="overviewBoxes[2]" [showOcuppancy]="showOccupancy" [property]="property"></day>
             </ion-col>
           </ion-row>
         </ion-card-content>
