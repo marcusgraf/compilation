@@ -18,6 +18,7 @@ export class User {
   mail: string = '';
   searchKeyword: string;
   seniority: any;
+  active: boolean;
 
   constructor(userData) {
     this.uuid = userData.uuid;
@@ -38,6 +39,7 @@ export class User {
     this.defaultCurrency = userData.currency;
     this.areaConfiguration = new AreaConfiguration(userData.myAreaTipoOferta, userData.myAreaHabitaciones, userData.radioZona, userData.dat_NumAlojamientos);
     this.calculateSeniority();
+    this.active = userData.activo;
   }
 
   checkUserIsSuscribed = function () {
@@ -50,7 +52,14 @@ export class User {
     registrationDate.setMonth(parseInt(this.registrationDate.substr(5,7)));
     registrationDate.setDate(parseInt(this.registrationDate.substr(7,9)));
     let now = new Date;
-    this.seniority = Math.floor((now - registrationDate) / 86400000);
+    const difference = now.valueOf() - registrationDate.valueOf();
+    this.seniority = Math.floor(difference / 86400000);
   };
+
+  trialIsFinished(){
+    return this.seniority > 7;
+    // return false;
+    // return true;
+  }
 }
 

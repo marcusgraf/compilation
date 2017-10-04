@@ -19,6 +19,7 @@ export class Property {
   incomeDifferencePropertyArea: number;
   averagePositionPage: number;
   areaBookingsCount: number;
+  searchKeyword: string;
 
   constructor(property: any) {
     this.id = property.idAlojamiento;

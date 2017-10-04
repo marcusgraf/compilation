@@ -13,9 +13,7 @@ export class UserServiceProvider {
   userChanged = new Subject<User>();
   currentUser: User;
 
-  constructor(
-  ){
-  }
+  constructor(){}
 
   saveUser(userData){
     const newUser = new User(userData);

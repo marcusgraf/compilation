@@ -7,7 +7,7 @@ import { Settings } from '../../providers/settings';
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 import {UserServiceProvider} from "../../providers/user-service/user-service";
 import {StoreServiceProvider} from "../../providers/store-service/store-service";
-import {VayooApiServiceProvider} from "../../providers/vayoo-api-service/vayoo-api-service";
+import {User} from "../../models/user";
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -34,6 +34,8 @@ export class SettingsPage {
   page: string = 'main';
   pageTitleKey: string = 'SETTINGS_TITLE';
   pageTitle: string;
+  user: User;
+  daysToTest: any;
 
   subSettings: any = SettingsPage;
 
@@ -47,7 +49,8 @@ export class SettingsPage {
     public userService: UserServiceProvider,
     public storeService: StoreServiceProvider,
   ) {
-
+    this.user = this.userService.currentUser;
+    this.daysToTest = { value: 7 - this.user.seniority};
   }
 
   _buildForm() {
@@ -100,6 +103,11 @@ export class SettingsPage {
 
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.pageTitle = event.translations['SETTINGS_TITLE'];
+    });
+
+    this.userService.userChanged.subscribe((user) => {
+      this.user = user;
+      this.daysToTest = { value: 7 - this.user.seniority};
     });
   }
 

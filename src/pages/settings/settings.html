@@ -45,7 +45,17 @@
     </ion-list>-->
   </form>
 
-  <div text-center>
-    <button ion-button (click)="subscribe()">{{ 'SETTINGS.SUBSCRIBE_BUTTON' | translate }}</button>
-  </div>
+  <ion-card>
+    <ion-card-header>{{ 'SETTINGS.SUBSCRIBE_CARD_TITLE' | translate }}</ion-card-header>
+    <ion-card-content>
+      <div *ngIf="!user.checkUserIsSuscribed()" text-center>
+        <p *ngIf="daysToTest.value > 0">{{ 'SETTINGS.REMAINING_FREE_DAYS' | translate:daysToTest }}</p>
+        <p *ngIf="daysToTest.value < 0">{{ 'SETTINGS.TRIAL_FINISHED' | translate }}</p>
+        <button ion-button (click)="subscribe()">{{ 'SETTINGS.SUBSCRIBE_BUTTON' | translate }}</button>
+      </div>
+      <div *ngIf="user.checkUserIsSuscribed()" text-center>
+        <p>{{ 'SETTINGS.SUBSCRIPTION_OK' | translate}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

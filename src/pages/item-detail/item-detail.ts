@@ -8,8 +8,8 @@ import {AreaPage} from "../area/area";
 import {Property} from "../../models/property";
 import {PropertyServiceProvider} from "../../providers/property-service/property-service";
 import {StoreServiceProvider} from "../../providers/store-service/store-service";
-import {VayooApiServiceProvider} from "../../providers/vayoo-api-service/vayoo-api-service";
 import {UserServiceProvider} from "../../providers/user-service/user-service";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'page-item-detail',
@@ -21,14 +21,18 @@ export class ItemDetailPage {
   recommendations: number;
   param: Object;
   searchKeyword: string;
+  user: User;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public propertyService: PropertyServiceProvider,
-    public userService: UserServiceProvider
+    public userService: UserServiceProvider,
+    public storeService: StoreServiceProvider
   ) {
+    this.user = this.userService.currentUser;
     this.property = navParams.get('property');
+    this.propertyService.init(this.property);
     this.overviewBoxes = [
       {id: 0, name: 'price', title: 'Price Recommendations', icon: 'cash', data: '', page: RecommendationsPage},
       {id: 1, name: 'stay', title: 'Minimum Stay', icon: 'key', data: '', page: RecommendationsPage},
@@ -39,7 +43,7 @@ export class ItemDetailPage {
     ];
   }
 
-  ionViewDidLoad() {
+/*  ionViewDidLoad() {
     this.propertyService.fetchPropertyRecommendations().subscribe(
       (recommendations) => {
         this.property.processRecommendations(recommendations.recommendations);
@@ -62,7 +66,7 @@ export class ItemDetailPage {
         this.overviewBoxes[4]['data'] = this.property.areaBookingsCount;
       }
     );
-  }
+  }*/
 
 
   openItem(data) {

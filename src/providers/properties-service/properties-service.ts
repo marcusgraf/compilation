@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import { Platform } from 'ionic-angular';
 import {Property} from "../../models/property";
 import {Subject} from "rxjs/Subject";
 import {VayooApiServiceProvider} from "../vayoo-api-service/vayoo-api-service";
+import { Storage } from "@ionic/storage";
+
 
 @Injectable()
 export class PropertiesServiceProvider {
@@ -11,10 +14,18 @@ export class PropertiesServiceProvider {
 
   constructor(
     private vayooApiService: VayooApiServiceProvider,
+    private platform: Platform,
+    private storage: Storage
   ) {
     this.vayooApiService.initialisedChanged.subscribe((initialise) => {
       if (!initialise) return;
       this.fetchUserProperties().subscribe();
+    });
+    this.platform.pause.subscribe(() => {
+    });
+
+    this.platform.resume.subscribe(() => {
+      console.log('[INFO] App resumed');
     });
   }
 
@@ -28,7 +39,11 @@ export class PropertiesServiceProvider {
   }
 
   fetchUserProperties(){
-    return this.vayooApiService.get('Accounts').map((properties) => this.updateUserProperties(properties.myListings));
+    return this.vayooApiService.get('Accounts').map(
+      (properties) => {
+        this.updateUserProperties(properties.myListings)
+      }
+    );
   }
 
   addPropertyByAirbnbAccount(mail, password){
@@ -50,8 +65,10 @@ export class PropertiesServiceProvider {
       (resp) => {
         this.properties = this.properties.filter(property => property.id !== id);
         this.propertiesChanged.next(this.properties.slice());
+        this.storage.remove(id + '_' + 'searchKeyword');
+        this.storage.remove(id + '_' + 'IncomePerformance');
+        this.storage.remove(id + '_' + 'Recommendations');
       },
     );
   }
-
 }

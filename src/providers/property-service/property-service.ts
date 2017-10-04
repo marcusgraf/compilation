@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Api} from "../api";
 import {VayooApiServiceProvider} from "../vayoo-api-service/vayoo-api-service";
+import { Storage } from "@ionic/storage";
+import {User} from "../../models/user";
+import {Subject} from "rxjs/Subject";
+import {Property} from "../../models/property";
 
 
 @Injectable()
@@ -9,28 +13,82 @@ export class PropertyServiceProvider {
 
   baseUrl: string;
   propertyEndPoint: string = 'MyListings';
+  propertyId: number;
+  user: User;
+  private property: Property;
+  propertyChanged = new Subject<Property>();
 
   constructor(
     public api: Api,
-    public vayooApiService: VayooApiServiceProvider
+    public vayooApiService: VayooApiServiceProvider,
+    public storage: Storage
   ) {
 
   }
 
-  init(propertyId){
-    this.baseUrl = this.propertyEndPoint + '/' + propertyId + '/';
+  init(property){
+    this.baseUrl = this.propertyEndPoint + '/' + property.id + '/';
+    this.property = property;
+    this.propertyId = property.id;
+    this.user = this.vayooApiService.userService.currentUser;
   }
 
   fetchPropertyRecommendations() {
-    return this.vayooApiService.get(this.baseUrl + 'Recommendations').map(
-      (data) => data.recommendations
-    );
+    const endPoint = 'Recommendations';
+
+    if (!this.user.checkUserIsSuscribed() && this.user.trialIsFinished()){
+      this.storage.get(this.propertyId + '_' +  endPoint).then(
+        (recommendations) => {
+          this.property.processRecommendations(recommendations);
+          this.propertyChanged.next(this.property);
+        }
+      );
+      this.storage.get(this.propertyId + '_' +  'searchKeyword').then(
+        (searchKeyword) => {
+          this.property.searchKeyword = this.user.searchKeyword = searchKeyword;
+          this.propertyChanged.next(this.property);
+        }
+      );
+    }else{
+      this.vayooApiService.get(this.baseUrl + endPoint).map(
+        (data) => {
+          return data.recommendations;
+        }
+      ).subscribe(
+        (recommendations) => {
+          this.storeData(endPoint, recommendations);
+          this.storeData('searchKeyword', this.vayooApiService.userService.currentUser.searchKeyword);
+          this.property.searchKeyword = this.vayooApiService.userService.currentUser.searchKeyword;
+          this.property.processRecommendations(recommendations);
+          this.propertyChanged.next(this.property);
+        }
+      );
+    }
   };
 
   fetchPropertyPerformance() {
-    return this.vayooApiService.get(this.baseUrl + 'IncomePerformance').map(
-      (data) => data.incomePerformance[0]
-    );
+    const endPoint = 'IncomePerformance';
+
+    if (!this.user.checkUserIsSuscribed() && this.user.trialIsFinished()){
+      this.storage.get(this.propertyId + '_' + endPoint).then(
+        (performanceData) => {
+          this.property.processPerformance(performanceData);
+          this.propertyChanged.next(this.property);
+        }
+      );
+    }else{
+      this.vayooApiService.get(this.baseUrl + endPoint).map(
+        (data) => {
+          return data.incomePerformance[0];
+        }
+      ).subscribe(
+        (performanceData) => {
+          this.storeData(endPoint, performanceData);
+          this.property.processPerformance(performanceData);
+          this.propertyChanged.next(this.property);
+        }
+      );
+    }
   };
 
   fetchPropertyAreaBookings(propertyId) {
@@ -65,5 +123,9 @@ export class PropertyServiceProvider {
     };
     return this.api.get('jIncomeListListProps', apiParams);
   };
+
+  storeData(endPoint: string, data){
+    this.storage.set(this.propertyId + '_' + endPoint, data);
+  }
 
 }

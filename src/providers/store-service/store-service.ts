@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import {Platform} from "ionic-angular";
+import {LoadingController, Platform} from "ionic-angular";
 import {InAppPurchase2} from "@ionic-native/in-app-purchase-2";
 import {UserServiceProvider} from "../user-service/user-service";
 import {HelpServiceProvider} from "../help-service/help-service";
@@ -19,7 +19,8 @@ export class StoreServiceProvider {
     private platform: Platform,
     private store: InAppPurchase2,
     private userService: UserServiceProvider,
-    private helpService: HelpServiceProvider
+    private helpService: HelpServiceProvider,
+    private loadingCtrl: LoadingController
   ){
     this.platform.ready().then(() => {
       if (this.platform.is('cordova')){
@@ -98,14 +99,22 @@ export class StoreServiceProvider {
   };
 
   subscribe(){
+    const loading = this.loadingCtrl.create({
+      content: 'Loading ...'
+    });
+    loading.present();
     console.log('storeService -> suscribing user');
     let promise = this.store.order(this.getAvailableSubscription());
 
     promise
       .then(function () {
+        loading.dismiss();
+
         console.log('storeService -> sucribing user order ok');
       })
       .error(function () {
+        loading.dismiss();
+
         console.error('storeService -> suscribing user order error');
 
         let ticketText = 'El usuario ' + this.userService.currentUser.clientId + 'no ha podido completar su compra debido a un error';

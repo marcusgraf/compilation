@@ -35,7 +35,7 @@ export class PositionDayTabComponent implements OnInit{
         }
       );
     }else if(this.day.visibility === 3){
-      const browser = this.iab.create('https://www.vayoo.com/');
+      const browser = this.iab.create('http://www.vayoo.com/change-your-minimum-stay');
       browser.show();
 
     }

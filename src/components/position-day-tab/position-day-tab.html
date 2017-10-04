@@ -1,8 +1,8 @@
 
-<div *ngIf="day.past || !day.free">
+<div *ngIf="!day.free">
   <ion-card>
     <ion-card-content>
-      <h1>{{ 'DAY.OCUPPIED' | translate}}</h1>
+      <h1 text-center>{{ 'DAY.OCUPPIED' | translate}}</h1>
     </ion-card-content>
   </ion-card>
 </div>

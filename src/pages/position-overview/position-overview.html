@@ -11,7 +11,7 @@
   <div class="property-profile" text-center #profilePic [style.background-image]="'url(' + property.largeImage + ')'">
   </div>
 
-  <div class="property-detail">
+  <div *ngIf="user.active" class="property-detail">
     <ion-grid>
       <ion-card>
         <ion-card-header>Overall</ion-card-header>
@@ -25,6 +25,9 @@
             <p>{{ 'POSITION_OVERVIEW.PROCESSING_DESCRIPTION' | translate }}</p>
           </div>
           <p><small>Updated every 24 hours.</small></p>
+          <div *ngIf="showUpdateButton()" text-center>
+            <button ion-button (click)="updateInfo()">{{ 'POSITION_OVERVIEW.UPDATE_BUTTON' | translate}}</button>
+          </div>
         </ion-card-content>
       </ion-card>
       <ion-card *ngFor="let month of property.yearRecommendations">
@@ -35,6 +38,18 @@
               <day *ngIf="day.month === month.number" tappable margin [day]="day" [dataToShow]="overviewBoxes[2]" [showOcuppancy]="showOccupancy" [property]="property"></day>
             </ion-col>
           </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="!user.active" class="property-detail">
+    <ion-grid>
+      <ion-card>
+        <ion-card-header>Overall</ion-card-header>
+        <ion-card-content>
+          <h1 text-center class="position-value">{{ 'POSITION_OVERVIEW.OFFLINE' | translate}}</h1>
+          <p>{{ 'POSITION_OVERVIEW.OFFLINE_DESCRIPTION' | translate }}</p>
         </ion-card-content>
       </ion-card>
     </ion-grid>

@@ -22,19 +22,19 @@ export class PositionOverviewPage extends ItemDetailPage {
 
 
   ionViewDidLoad() {
-    this.propertyService.init(this.property.id);
-    this.propertyService.fetchPropertyRecommendations().subscribe(
-      (recommendations) => {
-        this.property.processRecommendations(recommendations);
-        this.param = {value: this.userService.currentUser.searchKeyword};
-      }
-    );
-    this.propertyService.fetchPropertyPerformance().subscribe(
-      (performanceData) => {
-        this.property.processPerformance(performanceData);
-        this.overviewBoxes[2]['data'] = this.property.averagePositionPage;
-      }
-    );
+
+    this.userService.userChanged.subscribe((user) => this.user = user);
+    this.propertyService.propertyChanged.subscribe((property) => {
+      this.property = property;
+      this.overviewBoxes[2]['data'] = this.property.averagePositionPage;
+      this.param = {value: this.property.searchKeyword};
+    });
+    this.propertyService.fetchPropertyRecommendations();
+    this.propertyService.fetchPropertyPerformance();
+
+  }
+
+  ionViewWillLeave(){
 
   }
 
@@ -63,7 +63,6 @@ export class PositionOverviewPage extends ItemDetailPage {
       styles.push('day-occupied');
     }
 
-
     return styles;
   }
 
@@ -81,4 +80,12 @@ export class PositionOverviewPage extends ItemDetailPage {
       return 'th';
     }
   };
+
+  updateInfo(){
+    this.storeService.subscribe();
+  }
+
+  showUpdateButton(){
+    return (!this.user.checkUserIsSuscribed()) && this.user.trialIsFinished();
+  }
 }

@@ -70,7 +70,10 @@
   "POSITION_OVERVIEW": {
     "DATA_DESCRIPTION": "The Airbnb page in which your listing appears when searching in {{ value }}",
     "PROCESSING" : "We are processing your data",
-    "PROCESSING_DESCRIPTION" : "It can take up to 24 hours. We'll send you a notification once is done"
+    "PROCESSING_DESCRIPTION" : "It can take up to 24 hours. We'll send you a notification once is done",
+    "UPDATE_BUTTON": "Update info",
+    "OFFLINE": "Offline",
+    "OFFLINE_DESCRIPTION": "Your listing is not online"
   },
 
 
@@ -90,7 +93,6 @@
 
   "SETTINGS": {
     "TITLE": "Settings",
-    "INTRO" : "How to find your listing?",
     "LANGUAGE": "Language",
     "CURRENCY": "Currency",
     "SUBSCRIBE_BUTTON" : "Subscription",
@@ -99,7 +101,11 @@
     "FRENCH": "French",
     "ITALIAN": "Italian",
     "PORTUGUESE": "Portuguese",
-    "RUSSIAN": "Russian"
+    "RUSSIAN": "Russian",
+    "SUBSCRIBE_CARD_TITLE": "Subscription",
+    "REMAINING_FREE_DAYS": "You have {{ value }} days left to test",
+    "TRIAL_FINISHED": "Your trial period is over",
+    "SUBSCRIPTION_OK": "Your subscription is ok"
   },
 
 

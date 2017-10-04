@@ -23,7 +23,7 @@ export class VayooApiServiceProvider {
     private device: Device,
     private settingsService: Settings,
     public http: Http,
-    private userService: UserServiceProvider,
+    public userService: UserServiceProvider,
     private loadingCtrl: LoadingController
   ) {
     this.platform.ready().then(() => {
