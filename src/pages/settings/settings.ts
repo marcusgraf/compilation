@@ -50,7 +50,7 @@ export class SettingsPage {
     public storeService: StoreServiceProvider,
   ) {
     this.user = this.userService.currentUser;
-    this.daysToTest = { value: 7 - this.user.seniority};
+    this.daysToTest = { value: (7 - this.user.seniority)};
   }
 
   _buildForm() {
@@ -107,7 +107,7 @@ export class SettingsPage {
 
     this.userService.userChanged.subscribe((user) => {
       this.user = user;
-      this.daysToTest = { value: 7 - this.user.seniority};
+      this.daysToTest = { value: (7 - this.user.seniority)};
     });
   }
 

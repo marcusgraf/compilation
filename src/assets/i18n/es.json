@@ -1,53 +1,118 @@
 {
-  "NAME": "Nombre",
-  "PASSWORD": "Contraseña",
-  "EMAIL": "Email",
-  "LOGIN": "Iniciar sesión",
-  "SIGNUP": "Registrarse",
+"GENERAL": {
+"BACK_BUTTON_TEXT" : "Atrás",
+"EMAIL": "Email",
+"PASSWORD":  "Contraseña",
+"DONE_BUTTON" : "Hecho",
+"CANCEL_BUTTON" : "Cancelar"
+},
 
-  "TAB1_TITLE": "Propiedades",
-  "TAB2_TITLE": "Ayuda",
-  "TAB3_TITLE": "Ajustes",
 
-  "MAP_TITLE": "Mapa",
+"TUTORIAL": {
+"SKIP_BUTTON" : "Saltar",
+"CONTINUE_BUTTON": "Continuar",
+"SLIDE1_TITLE": "Bienvenido a ¿Es mi anuncio encontrable?",
+"SLIDE1_DESCRIPTION": "<b> ¿Es mi anuncio encontrable?</b> Es la nueva App diseñada por Vayoo que te muestra tu posición diaria en buscadores dentro de Airbnb. ",
+"SLIDE2_TITLE": "Cómo utilizar ¿Es mi anuncio encontrable?",
+"SLIDE2_DESCRIPTION": "Sincroniza tu cuenta para una mejor y más rápida optimización. Por favor, ten en cuenta que, en este proceso, no hay interacción humana. Nosotros ni vemos ni guardamos tu contraseña. Todo el proceso está asegurado por un sistema de encriptación de archivos.",
+"SLIDE3_TITLE": "Echa un vistazo a tu calendario.",
+"SLIDE3_DESCRIPTION": "Aquí puedes echar un vistazo general a los próximos meses. Recuerda que, de media, la posición de búsqueda es calculada a partir de tus próximos <b>21 días libres<b>. Cuanto más lejos estén tus días libres en el calendario, más alta será tu posición de búsqueda pues habrá más competidores en tu área.",
+"SLIDE4_TITLE": "Elige un día.",
+"SLIDE4_DESCRIPTION": "Aquí puedes ver las diferentes posiciones de búsqueda en la que sale tu anuncio dependiendo de los filtros utilizados.",
+"SLIDE5_TITLE": "¿Comenzamos?"
+},
 
-  "TUTORIAL_SLIDE1_TITLE": "Bienvenido/a al Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "El <b>Ionic Super Starter</b> es un starter de Ionic completo con muchas páginas preconstruidas y mejores prácticas.",
 
-  "TUTORIAL_SLIDE2_TITLE": "Cómo usar el Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Monta los varios tipos de página que quieras y quita los que no. Hemos incluido muchas estructuras de página comunes en apps móviles, como páginas de inicio de sesión y registro, pestañas, y esta página de tutorial.",
 
-  "TUTORIAL_SLIDE3_TITLE": "Empezando",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "¿Necesitas ayuda? Échale un vistazo al README del Super Starter para ver el tutorial completo.",
 
-  "SETTINGS_TITLE": "Ajustes",
-  "SETTINGS_OPTION1": "Idioma",
-  "SETTINGS_OPTION2": "Moneda",
-  "SETTINGS_OPTION3": "Opción 3",
-  "SETTINGS_OPTION4": "Opción 4",
+"WELCOME": {
+"INTRO" : "¿Cómo encontrar tu propiedad?",
+"LINK_ACCOUNT": "Sincroniza tu cuenta de Airbnb",
+"ENTER_AIRBNB_ID": "Introduce el ID de tu propiedad",
+"FIND_PROPERTY": "Encuentra tu propiedad en el mapa"
+},
 
-  "SETTINGS_PAGE_PROFILE": "Suscripción",
 
-  "WELCOME_TITLE": "Bienvenido/a",
+"PROPERTIES": {
+"TITLE": "Propiedades",
+"DELETE_BUTTON": "Borrar"
+},
 
-  "LOGIN_TITLE": "Iniciar sesión",
-  "LOGIN_ERROR": "No se ha podido iniciar sesión. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
-  "LOGIN_BUTTON": "Iniciar sesión",
-  "SIGNUP_TITLE": "Registro",
-  "SIGNUP_ERROR": "No se ha podido crear la cuenta. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
-  "SIGNUP_BUTTON": "Registrarse",
 
-  "LIST_MASTER_TITLE": "Propiedades",
+"ADD_PROPERTY": {
+"TITLE" : "Cómo encontrar tu propiedad",
+"LINK_ACCOUNT": "Sincroniza tu cuenta de Airbnb",
+"ENTER_AIRBNB_ID": "Introduce el ID de tu propiedad",
+"FIND_PROPERTY": "Encuentra tu propiedad en el mapa"
+},
 
-  "ITEM_CREATE_TITLE": "Nuevo Item",
-  "ITEM_CREATE_CHOOSE_IMAGE": "Añadir Imagen",
 
-  "CARDS_TITLE": "Social",
+"LINK_ACCOUNT": {
+"TITLE": "Sincronizar",
+"EMAIL": "Email",
+"PASSWORD": "Contraseña",
+"LINK_BUTTON": "Sincronizar cuenta",
+"INCORRECT_PASWORD": "Lo sentimos. No hemos sido capaces de verificar tu cuenta. Por favor, asegúrate de que has introducido tus datos correctamente."
+},
 
-  "SEARCH_TITLE": "Buscar",
 
-  "LINK_ACCOUNT": "Vincular cuenta",
-  "ENTER_AIRBNB_ID": "Introducir identificador",
-  "FIND_PROPERTY": "Buscar tu propiedad",
-  "WELCOME_INTRO" : "¿Cómo encontrar tu propiedad?"
+
+"ENTER_AIRBNB_ID": {
+"TITLE": "Introduce el ID de Airbnb",
+"AIRBNB_ID_OR_LINK": "Email",
+"ADD_BUTTON": "Añadir propiedad"
+},
+
+
+"FIND_PROPERTY": {
+"TITLE": "Encuentra tu propiedad"
+},
+
+
+"POSITION_OVERVIEW": {
+"DATA_DESCRIPTION": "Página de Airbnb en la que aparece tu propiedad al buscar en Madrid",
+"PROCESSING": "Estamos procesando tus datos",
+"PROCESSING_DESCRIPTION": "Esto puede llevarnos hasta 24 horas. Te avisaremos en cuanto lo tengamos listo"
+},
+
+
+"DAY": {
+"OCUPPIED": "No disponible",
+"POSITION": {
+"PAGE": "página",
+"KEYWORD": "Al buscar en {{value}}",
+"NIGHTS": "Noches",
+"ROOMS": "Habitaciones",
+"LAST_DAY_PERIOD": "Este es el último día de un periodo. Tu anuncio no se muestra debido al <b>número mínimo de noches<b> que has especificado en los ajustes de tu Airbnb",
+"MINIMUM_NIGTHS_PROBLEM": "Tu anuncio no aparece en las búsquedas debido al <b>requisito de estancia mínima<b> que has especificado en Airbnb.",
+"NOT_APPEARS": "Tu anuncio no aparece este día en las primeras 18 páginas al buscar en <b>'{{value}'</b></span> sin filtros. (Probablemente aparezca al usar algún filtro)."
+}
+},
+
+
+"SETTINGS": {
+"TITLE": "Ajustes",
+"INTRO": "¿Cómo encontrar tu propiedad?",
+"LANGUAGE": "Idioma",
+"CURRENCY": "Moneda",
+"SUBSCRIBE_BUTTON": "Subscripción",
+"ENGLISH": "Inglés",
+"SPANISH": "Español",
+"FRENCH": "Francés",
+"ITALIAN": "Italiano",
+"PORTUGUESE": "Portugués",
+"RUSSIAN": "Ruso"
+},
+
+
+"HELP": {
+"TITLE": "Ayuda",
+"TEXT_TO_SEND" : "Mensaje",
+"EMAIL": "Email",
+"SEND": "Enviar",
+"THANKS": "Nos pondremos en contacto contigo lo antes posible. Gracias por tu paciencia.",
+"PROBLEM": "Ups! Algo ha ido mal"
+}
+
+
 }

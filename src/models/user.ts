@@ -52,7 +52,7 @@ export class User {
     registrationDate.setMonth(parseInt(this.registrationDate.substr(5,7)));
     registrationDate.setDate(parseInt(this.registrationDate.substr(7,9)));
     let now = new Date;
-    const difference = now.valueOf() - registrationDate.valueOf();
+    const difference = registrationDate.valueOf() - now.valueOf();
     this.seniority = Math.floor(difference / 86400000);
   };
 

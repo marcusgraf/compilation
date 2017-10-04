@@ -11,7 +11,7 @@
   <div class="property-profile" text-center #profilePic [style.background-image]="'url(' + property.largeImage + ')'">
   </div>
 
-  <div *ngIf="user.active" class="property-detail">
+  <div *ngIf="user && user.active" class="property-detail">
     <ion-grid>
       <ion-card>
         <ion-card-header>Overall</ion-card-header>
@@ -43,7 +43,7 @@
     </ion-grid>
   </div>
 
-  <div *ngIf="!user.active" class="property-detail">
+  <div *ngIf="user && !user.active" class="property-detail">
     <ion-grid>
       <ion-card>
         <ion-card-header>Overall</ion-card-header>
