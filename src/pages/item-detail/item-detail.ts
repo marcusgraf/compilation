@@ -10,6 +10,7 @@ import {PropertyServiceProvider} from "../../providers/property-service/property
 import {StoreServiceProvider} from "../../providers/store-service/store-service";
 import {UserServiceProvider} from "../../providers/user-service/user-service";
 import {User} from "../../models/user";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'page-item-detail',
@@ -22,13 +23,15 @@ export class ItemDetailPage {
   param: Object;
   searchKeyword: string;
   user: User;
+  months_names: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public propertyService: PropertyServiceProvider,
     public userService: UserServiceProvider,
-    public storeService: StoreServiceProvider
+    public storeService: StoreServiceProvider,
+    public translateService: TranslateService
   ) {
     this.user = this.userService.currentUser;
     this.property = navParams.get('property');

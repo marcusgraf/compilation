@@ -17,6 +17,7 @@ export class LinkAccountPage {
   };
   showError: boolean;
   helpMessage: string;
+  errorMessages: Object;
 
   // Our translated text strings
   private loginErrorString: string;
@@ -26,10 +27,15 @@ export class LinkAccountPage {
     public translateService: TranslateService,
     public propertiesService: PropertiesServiceProvider,
     public helpService: HelpServiceProvider,
+    public toastCtrl: ToastController,
   ) {
-    this.translateService.get('LOGIN_ERROR').subscribe((value) => {
-      this.loginErrorString = value;
-    })
+    this.translateService.get('API_ERRORS').subscribe((values) => {
+      this.errorMessages = values;
+
+    });
+    this.translateService.onLangChange.subscribe((values) => {
+      this.errorMessages = values.translations['API_ERRORS'];
+    });
   }
 
   ionViewDidLoad() {
@@ -42,8 +48,15 @@ export class LinkAccountPage {
       },
       (error) => {
         const errorBody = JSON.parse(error._body);
-        this.helpMessage = this.helpService.loginUserMessages[errorBody.errorCode];
-        this.showError = true;
+        // this.showError = true;
+
+        const toast = this.toastCtrl.create({
+          message: this.errorMessages[errorBody.errorCode],
+          position: 'top',
+          showCloseButton: true,
+          closeButtonText: 'Ok'
+        });
+        toast.present();
       });
   }
 }

@@ -21,6 +21,7 @@ export class EnterAirbnbIdPage {
   airbnbIdToAdd: number;
   showError: boolean;
   helpMessage: string;
+  errorMessages: Object;
 
   private loginErrorString: string;
   constructor(
@@ -31,9 +32,13 @@ export class EnterAirbnbIdPage {
     public propertiesService: PropertiesServiceProvider,
     public helpService: HelpServiceProvider,
   ) {
-    this.translateService.get('LOGIN_ERROR').subscribe((value) => {
-      this.loginErrorString = value;
-    })
+    this.translateService.get('API_ERRORS').subscribe((values) => {
+      this.errorMessages = values;
+
+    });
+    this.translateService.onLangChange.subscribe((values) => {
+      this.errorMessages = values.translations['API_ERRORS'];
+    });
   }
 
   ionViewDidLoad() {
@@ -47,8 +52,15 @@ export class EnterAirbnbIdPage {
       },
       (error) => {
         const errorBody = JSON.parse(error._body);
-        this.helpMessage = this.helpService.loginUserMessages[errorBody.errorCode];
-        this.showError = true;
+        // this.showError = true;
+
+        const toast = this.toastCtrl.create({
+          message: this.errorMessages[errorBody.errorCode],
+          position: 'top',
+          showCloseButton: true,
+          closeButtonText: 'Ok'
+        });
+        toast.present();
       });
   }
 

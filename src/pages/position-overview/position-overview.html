@@ -14,7 +14,7 @@
   <div *ngIf="user && user.active" class="property-detail">
     <ion-grid>
       <ion-card>
-        <ion-card-header>Overall</ion-card-header>
+        <ion-card-header>{{ "POSITION_OVERVIEW.OVERALL" | translate }}</ion-card-header>
         <ion-card-content>
           <div *ngIf="property.averagePositionPage">
             <h1 text-center class="position-value">{{property.averagePositionPage}}<sup>{{ordinalSupText(property.averagePositionPage)}}</sup> page</h1>
@@ -31,7 +31,7 @@
         </ion-card-content>
       </ion-card>
       <ion-card *ngFor="let month of property.yearRecommendations">
-        <ion-card-header>{{month.name}}</ion-card-header>
+        <ion-card-header>{{months_names[month.number]}}</ion-card-header>
         <ion-card-content >
           <ion-row *ngFor="let week of month.weeks; let i = index">
             <ion-col tappable no-padding *ngFor="let day of week" [ngClass]="dayStyle(day, month, i)" (click)="openDay(day, month)">

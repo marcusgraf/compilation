@@ -10,6 +10,7 @@ import {LoginPage} from "../login/login";
 import {Subscription} from "rxjs/Subscription";
 import {WelcomePage} from "../welcome/welcome";
 import {PositionOverviewPage} from "../position-overview/position-overview";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'page-list-master',
@@ -18,21 +19,21 @@ import {PositionOverviewPage} from "../position-overview/position-overview";
 export class ListMasterPage{
   properties: Property[];
   private subscription: Subscription;
-
+  delete_confirm_text: string;
+  delete_confirm_button_text: string;
+  delete_cancel_button_text: string;
 
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     private propertiesService : PropertiesServiceProvider,
     public userService: UserServiceProvider,
-    public actionSheetCtrl: ActionSheetController
+    public actionSheetCtrl: ActionSheetController,
+    private translateService: TranslateService
   ) {
 
   }
 
-  /**
-   * The view loaded, let's query our items for the list
-   */
   ionViewDidLoad() {
     this.properties = this.propertiesService.getUserProperties();
     this.subscription = this.propertiesService.propertiesChanged
@@ -42,32 +43,36 @@ export class ListMasterPage{
         }
       );
 
+    this.translateService.get('PROPERTIES').subscribe((values) => {
+      this.delete_confirm_text = values['DELETE_CONFIRM_TEXT'];
+      this.delete_confirm_button_text = values['DELETE_CONFIRM_BUTTON_TEXT'];
+      this.delete_cancel_button_text = values['DELETE_CANCEL_BUTTON_TEXT'];
+    });
+    this.translateService.onLangChange.subscribe((values) => {
+      const changed_values = values.translations['PROPERTIES'];
+      this.delete_confirm_text = changed_values['DELETE_CONFIRM_TEXT'];
+      this.delete_confirm_button_text = changed_values['DELETE_CONFIRM_BUTTON_TEXT'];
+      this.delete_cancel_button_text = changed_values['DELETE_CANCEL_BUTTON_TEXT'];
+    });
   }
 
-  /**
-   * Prompt the user to add a new item. This shows our ItemCreatePage in a
-   * modal and then adds the new item to our data source if the user created one.
-   */
   addItem() {
     let addModal = this.modalCtrl.create(LoginPage);
     addModal.present();
   }
 
-  /**
-   * Delete an item from the list of items.
-   */
   deleteItem(propertyId) {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Are you sure?',
+    let confirmDelete = this.actionSheetCtrl.create({
+      title: this.delete_confirm_text,
       buttons: [
         {
-          text: 'Delete',
+          text: this.delete_confirm_button_text,
           role: 'destructive',
           handler: () => {
             this.propertiesService.deleteProperty(propertyId);
           }
         },{
-          text: 'Cancel',
+          text: this.delete_cancel_button_text,
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
@@ -75,16 +80,15 @@ export class ListMasterPage{
         }
       ]
     });
-    actionSheet.present();
+    confirmDelete.present();
 
   }
 
-  /**
-   * Navigate to the detail page for this item.
-   */
   openItem(property: Property) {
     this.navCtrl.push(PositionOverviewPage, {
       property: property
     });
   }
+
+
 }

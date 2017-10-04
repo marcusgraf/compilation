@@ -22,7 +22,13 @@ export class PositionOverviewPage extends ItemDetailPage {
 
 
   ionViewDidLoad() {
+    this.translateService.get('MONTHS').subscribe((values) => {
+      this.months_names = values;
 
+    });
+    this.translateService.onLangChange.subscribe((values) => {
+      this.months_names = values.translations['MONTHS'];
+    });
     this.userService.userChanged.subscribe((user) => this.user = user);
     this.propertyService.propertyChanged.subscribe((property) => {
       this.property = property;
