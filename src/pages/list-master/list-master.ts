@@ -90,5 +90,16 @@ export class ListMasterPage{
     });
   }
 
+  truncatePropertyTitle(input){
+    let length = 35;
+    let ending = '';
+    if (input.length > length) {
+      let trimmedString = input.substring(0, length - ending.length);
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
+      return trimmedString;
+    } else {
+      return input;
+    }
+  }
 
 }

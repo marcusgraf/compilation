@@ -1,3 +1,38 @@
 page-list-master {
+  .property-card-image{
+    height: 110px;
+  }
 
+  .property-card-content{
+    padding: 0px 16px 0px !important;
+/*    font-size: 1.4rem;
+    line-height: 1.4;
+    display: block;*/
+  }
+
+  .property-card-buttons-row{
+    position: absolute;
+    bottom: 0;
+  }
+
+  .property-card-remove-button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .property-card-title{
+    font-size: 1.6rem !important;
+  }
+
+  .property-profile {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    height: 125px;
+  }
+
+  .property-remove-button{
+    color: darkgrey;
+  }
 }

@@ -24,15 +24,10 @@
   </form>
   <ion-card>
     <ion-card-content>
-      <p>Your Airbnb listing link is what you see in the address bar at the top of your browser when you visit your property at Airbnb's web site. It has the form of:</p>
+      <p>{{ "ENTER_AIRBNB_ID.TIP_1" | translate}}</p>
       <p text-center>https://www.airbnb.com/rooms/<strong>xxxxxxx</strong></p>
-      <p>Where <strong>xxxxxxx</strong> is your Airbnb listing Id.</p>
-      <p>Tip: You can also introduce just your listing Id</p>
+      <p>{{ "ENTER_AIRBNB_ID.TIP_2" | translate}}</p>
+      <p>{{ "ENTER_AIRBNB_ID.TIP_3" | translate}}</p>
     </ion-card-content>
   </ion-card>
-
-  <div *ngIf="showError">
-    <h1>Ups!</h1>
-    <p [innerHTML]="this.helpMessage"></p>
-  </div>
 </ion-content>

@@ -95,7 +95,10 @@
   "ENTER_AIRBNB_ID": {
     "TITLE" : "Enter Airbnb id",
     "AIRBNB_ID_OR_LINK": "Url or Id",
-    "ADD_BUTTON": "Add listing"
+    "ADD_BUTTON": "Add listing",
+    "TIP_1": "Your Airbnb listing link is what you see in the address bar at the top of your browser when you visit your property at Airbnb's web site. It has the form of:",
+    "TIP_2": "Where <strong>xxxxxxx</strong> is your Airbnb listing Id.",
+    "TIP_3": "Tip: You can also introduce just your listing Id"
   },
 
 
