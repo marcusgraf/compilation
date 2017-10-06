@@ -20,6 +20,9 @@ export class Property {
   averagePositionPage: number;
   areaBookingsCount: number;
   searchKeyword: string;
+  positionDataLastUpdate: string;
+  positionDataLastUpdateHuman: string;
+  hasStoredData: boolean = true;
 
   constructor(property: any) {
     this.id = property.idAlojamiento;
@@ -105,5 +108,29 @@ export class Property {
 
   processAreaBookings(areaBookingsData){
     this.areaBookingsCount = areaBookingsData.filter((booking) => booking.TuPrecio > 0).length;
+  }
+
+  convertUpdateDateToHuman(){
+    let registrationDate = new Date();
+    registrationDate.setFullYear(parseInt(this.positionDataLastUpdate.substr(0, 4)));
+    registrationDate.setMonth(parseInt(this.positionDataLastUpdate.substr(5,7)));
+    registrationDate.setDate(parseInt(this.positionDataLastUpdate.substr(7,9)));
+    const hour = this.positionDataLastUpdate.substr(11, 14);
+    let now = new Date;
+    let difference = registrationDate.valueOf() - now.valueOf();
+    difference = Math.floor(difference / 86400000);
+    
+    if (difference < 1){
+      this.positionDataLastUpdateHuman = 'Today at ' + hour;
+    }else if (difference === 1){
+      this.positionDataLastUpdateHuman = 'Yesterday at '+ hour;
+    }else if (difference === 2){
+      this.positionDataLastUpdateHuman = 'Before yesterday at ' + hour;
+    }else if (difference > 2){
+      this.positionDataLastUpdateHuman = 'More than two days ago';
+    }
+
+    return this.positionDataLastUpdateHuman;
+
   }
 }

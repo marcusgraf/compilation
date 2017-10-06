@@ -94,4 +94,10 @@ export class PositionOverviewPage extends ItemDetailPage {
   showUpdateButton(){
     return (!this.user.checkUserIsSuscribed()) && this.user.trialIsFinished();
   }
+
+  updateTextRed(){
+    if (this.showUpdateButton()){
+      return 'red';
+    }
+  }
 }

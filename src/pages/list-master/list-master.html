@@ -49,9 +49,9 @@
                 </ion-col>
               </ion-row>
 
-              <ion-row no-padding (click)="deleteItem(property.id)">
+              <ion-row no-padding >
                 <ion-col col-4 no-padding class="property-card-buttons-row">
-                  <button no-padding ion-button icon-left clear small  class="property-remove-button">
+                  <button (click)="deleteItem(property.id)" no-padding ion-button icon-left clear small  class="property-remove-button">
                     <ion-icon name="trash"></ion-icon>
                     <div>{{ 'PROPERTIES.DELETE_BUTTON' | translate }}</div>
                   </button>

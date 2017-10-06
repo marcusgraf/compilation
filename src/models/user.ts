@@ -17,6 +17,7 @@ export class User {
   areaConfiguration: AreaConfiguration;
   mail: string = '';
   searchKeyword: string;
+  positionDataLastUpdate: string;
   seniority: any;
   active: boolean;
 
@@ -32,6 +33,7 @@ export class User {
     this.changesLeft = this.maxChanges - this.changesDoneToday;
     this.userPremiumLevel = parseInt(userData.suscripcion);
     this.searchKeyword = userData.sitio;
+    this.positionDataLastUpdate = userData.fechaUltimoProcesamientoAirbnbSE;
     // TODO eliminate
     // this.userPremiumLevel = service.userPremiumLevel = parseInt(4);
     this.registrationDate = userData.fechaAlta;
@@ -57,8 +59,8 @@ export class User {
   };
 
   trialIsFinished(){
-    return this.seniority > 7;
-    // return false;
+    // return this.seniority > 7;
+    return false;
     // return true;
   }
 }

@@ -68,7 +68,7 @@ export class MyApp {
   }
 
   getFirstPage(settings){
-    if (settings && !settings.hasSeenTutorial){
+    if (!settings || settings && !settings.hasSeenTutorial){
       this.rootPage = TutorialPage;
     }else{
       this.properties = this.propertiesService.getUserProperties();

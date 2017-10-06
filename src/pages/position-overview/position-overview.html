@@ -16,18 +16,39 @@
       <ion-card>
         <ion-card-header>{{ "POSITION_OVERVIEW.OVERALL" | translate }}</ion-card-header>
         <ion-card-content>
-          <div *ngIf="property.averagePositionPage">
-            <h1 text-center class="position-value">{{property.averagePositionPage}}<sup>{{ordinalSupText(property.averagePositionPage)}}</sup> page</h1>
-            <p>{{ 'POSITION_OVERVIEW.DATA_DESCRIPTION' | translate:param }}</p>
+
+          <div *ngIf="property.hasStoredData">
+            <div *ngIf="property.averagePositionPage">
+              <h1 text-center class="position-value">{{property.averagePositionPage}}<sup>{{ordinalSupText(property.averagePositionPage)}}</sup> page</h1>
+              <p>{{ 'POSITION_OVERVIEW.DATA_DESCRIPTION' | translate:param }}</p>
+            </div>
+
+            <div *ngIf="!property.averagePositionPage">
+              <h1 text-center class="position-value">{{ 'POSITION_OVERVIEW.PROCESSING' | translate}}</h1>
+              <p>{{ 'POSITION_OVERVIEW.PROCESSING_DESCRIPTION' | translate }}</p>
+            </div>
+
+            <!--<p><small>Updated every 24 hours.</small></p>-->
+            <p [ngClass]="updateTextRed()"><small>Last update: {{ property.positionDataLastUpdateHuman}}</small></p>
+
+            <div *ngIf="showUpdateButton()" text-center>
+              <button class="update-info-button" ion-button (click)="updateInfo()">{{ 'POSITION_OVERVIEW.UPDATE_BUTTON' | translate}}</button>
+            </div>
+
           </div>
-          <div *ngIf="!property.averagePositionPage">
-            <h1 text-center class="position-value">{{ 'POSITION_OVERVIEW.PROCESSING' | translate}}</h1>
-            <p>{{ 'POSITION_OVERVIEW.PROCESSING_DESCRIPTION' | translate }}</p>
+
+          <div *ngIf="!property.hasStoredData">
+            <h1 text-center class="position-value">{{ 'SETTINGS.TRIAL_FINISHED' | translate}}</h1>
+            <p>{{ 'SETTINGS.SUBSCRIBE_DESCRIPTION' | translate }}</p>
+            <div *ngIf="showUpdateButton()" text-center>
+              <button ion-button (click)="updateInfo()">{{ 'SETTINGS.SUBSCRIBE_BUTTON' | translate}}</button>
+            </div>
+
           </div>
-          <p><small>Updated every 24 hours.</small></p>
-          <div *ngIf="showUpdateButton()" text-center>
-            <button ion-button (click)="updateInfo()">{{ 'POSITION_OVERVIEW.UPDATE_BUTTON' | translate}}</button>
-          </div>
+
+
+
+
         </ion-card-content>
       </ion-card>
       <ion-card *ngFor="let month of property.yearRecommendations">

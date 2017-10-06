@@ -39,14 +39,30 @@ export class PropertyServiceProvider {
     if (!this.user.checkUserIsSuscribed() && this.user.trialIsFinished()){
       this.storage.get(this.propertyId + '_' +  endPoint).then(
         (recommendations) => {
-          this.property.processRecommendations(recommendations);
+          if (recommendations){
+            this.property.processRecommendations(recommendations);
+            this.property.hasStoredData = true;
+          }else{
+            this.property.hasStoredData = false;
+          }
           this.propertyChanged.next(this.property);
         }
       );
       this.storage.get(this.propertyId + '_' +  'searchKeyword').then(
         (searchKeyword) => {
-          this.property.searchKeyword = this.user.searchKeyword = searchKeyword;
-          this.propertyChanged.next(this.property);
+          if (searchKeyword){
+            this.property.searchKeyword = this.user.searchKeyword = searchKeyword;
+            this.propertyChanged.next(this.property);
+          }
+        }
+      );
+      this.storage.get(this.propertyId + '_' +  'positionDataLastUpdate').then(
+        (positionDataLastUpdate) => {
+          if (positionDataLastUpdate){
+            this.property.positionDataLastUpdate = this.user.positionDataLastUpdate = positionDataLastUpdate;
+            this.property.convertUpdateDateToHuman();
+            this.propertyChanged.next(this.property);
+          }
         }
       );
     }else{
@@ -58,7 +74,11 @@ export class PropertyServiceProvider {
         (recommendations) => {
           this.storeData(endPoint, recommendations);
           this.storeData('searchKeyword', this.vayooApiService.userService.currentUser.searchKeyword);
+          this.storeData('positionDataLastUpdate', this.vayooApiService.userService.currentUser.positionDataLastUpdate);
+          this.property.hasStoredData = true;
           this.property.searchKeyword = this.vayooApiService.userService.currentUser.searchKeyword;
+          this.property.positionDataLastUpdate = this.vayooApiService.userService.currentUser.positionDataLastUpdate;
+          this.property.convertUpdateDateToHuman();
           this.property.processRecommendations(recommendations);
           this.propertyChanged.next(this.property);
         }
@@ -72,7 +92,12 @@ export class PropertyServiceProvider {
     if (!this.user.checkUserIsSuscribed() && this.user.trialIsFinished()){
       this.storage.get(this.propertyId + '_' + endPoint).then(
         (performanceData) => {
-          this.property.processPerformance(performanceData);
+          if (performanceData){
+            this.property.processPerformance(performanceData);
+            this.property.hasStoredData = true;
+          }else{
+            this.property.hasStoredData = false;
+          }
           this.propertyChanged.next(this.property);
         }
       );
@@ -84,6 +109,7 @@ export class PropertyServiceProvider {
       ).subscribe(
         (performanceData) => {
           this.storeData(endPoint, performanceData);
+          this.property.hasStoredData = true;
           this.property.processPerformance(performanceData);
           this.propertyChanged.next(this.property);
         }

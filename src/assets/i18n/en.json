@@ -146,7 +146,8 @@
     "SUBSCRIBE_CARD_TITLE": "Subscription",
     "REMAINING_FREE_DAYS": "You have {{ value }} days left to test",
     "TRIAL_FINISHED": "Your trial period is over",
-    "SUBSCRIPTION_OK": "Your subscription is ok"
+    "SUBSCRIPTION_OK": "Your subscription is ok",
+    "SUBSCRIBE_DESCRIPTION": "Subscribe to get this listing's position data"
   },
 
 
