@@ -19,7 +19,7 @@ export class User {
   searchKeyword: string;
   positionDataLastUpdate: string;
   seniority: any;
-  active: boolean;
+  active: boolean = true;
 
   constructor(userData) {
     this.uuid = userData.uuid;
@@ -60,8 +60,8 @@ export class User {
 
   trialIsFinished(){
     // return this.seniority > 7;
-    return false;
-    // return true;
+    // return false;
+    return true;
   }
 }
 

@@ -119,10 +119,7 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot({
-      name: '__isMyListingFindabledb',
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
-    })
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

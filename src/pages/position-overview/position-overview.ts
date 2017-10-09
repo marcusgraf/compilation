@@ -22,6 +22,9 @@ export class PositionOverviewPage extends ItemDetailPage {
 
 
   ionViewDidLoad() {
+    this.propertyService.fetchPropertyRecommendations();
+    this.propertyService.fetchPropertyPerformance();
+    let userIsSubscribed = this.user.checkUserIsSuscribed;
     this.translateService.get('MONTHS').subscribe((values) => {
       this.months_names = values;
 
@@ -29,14 +32,22 @@ export class PositionOverviewPage extends ItemDetailPage {
     this.translateService.onLangChange.subscribe((values) => {
       this.months_names = values.translations['MONTHS'];
     });
-    this.userService.userChanged.subscribe((user) => this.user = user);
+    this.userService.userChanged.subscribe(
+      (user) => {
+/*        if (userIsSubscribed !== this.user.checkUserIsSuscribed){
+          this.propertyService.fetchPropertyRecommendations();
+          this.propertyService.fetchPropertyPerformance();
+          userIsSubscribed = this.user.checkUserIsSuscribed;
+        }*/
+        this.user = user
+      }
+    );
     this.propertyService.propertyChanged.subscribe((property) => {
       this.property = property;
       this.overviewBoxes[2]['data'] = this.property.averagePositionPage;
       this.param = {value: this.property.searchKeyword};
     });
-    this.propertyService.fetchPropertyRecommendations();
-    this.propertyService.fetchPropertyPerformance();
+
 
   }
 

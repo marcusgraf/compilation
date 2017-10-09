@@ -82,6 +82,8 @@ export class StoreServiceProvider {
           hitType: 'pageview',
           page: '/newSubscription'
         });*/
+        this.userService.currentUser.userPremiumLevel = 1;
+        this.userService.userChanged.next(this.userService.currentUser);
       }
 
       let pro_data = JSON.parse(p.transaction);

@@ -37,17 +37,18 @@ export class MyApp {
     private propertiesService: PropertiesServiceProvider,
 
   ) {
-    this.settings.load().then((settings) => {
-      this.getFirstPage(settings);
-      this.initTranslate(settings);
+    this.platform.ready().then(() => {
+      this.settings.load().then((settings) => {
+        this.initTranslate(settings);
+        this.getFirstPage(settings);
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
+      });
     });
   }
 
   ionViewDidLoad() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+
   }
 
   initTranslate(settings) {
